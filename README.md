@@ -1,7 +1,7 @@
 A repository for all my RPCW homework, year 2022.
 
-# Author
+## Author
 * [Carolina da Torre Vila Chã](https://github.com/carolinavc99)
 
-# University
+## University
 * [Universidade do Minho](https://www.uminho.pt/PT)
