@@ -1,27 +1,92 @@
 /*TODO 
     fix word wrap */
 body {
-    background-color: rgb(44, 43, 43);
-    font-family: Arial, Helvetica, sans-serifserif;
+    background-color: rgb(38, 70, 83);
+    font-family: Arial, Helvetica, sans-serif;
     color: whitesmoke;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
-div.cardparagraph {
+.author {
+    text-align: left;
+    color: whitesmoke;
+    border: solid rgb(244, 162, 97);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(244, 162, 97);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 3px 3px rgb(231, 111, 81);
+}
+
+.center-text {
+    text-align: center;
+}
+
+.cardparagraph {
     word-wrap: normal;
 }
 
-div.cardtitle {
-    border: solid rgb(12, 100, 100);
-    background-color: rgb(12, 100, 100);
-    height: 40px;
+.cardtitle {
+    text-align: center;
+    padding: 1px;
 }
 
-div.card-box {
+.card-box {
     float:left;
-    width:33%;
+    width: 23%;
     height:360px;
-    border:solid rgb(12, 100, 100);
-    margin: 0px;
-    margin-bottom: 10px;
-    background-color:  rgb(56, 56, 56);
+    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(56, 56, 56);
+}
+
+.blue {
+    border:solid rgb(10, 82, 82);
+    box-shadow: 5px 5px rgb(7, 63, 63);
+}
+
+.bluetitle {
+    background-color: rgb(10, 82, 82);
+}
+
+.teal {
+    border:solid rgb(42, 157, 143);
+    box-shadow: 5px 5px rgb(10, 82, 82);
+}
+
+.tealtitle {
+    background-color: rgb(42, 157, 143);
+}
+
+.yellow {
+    border:solid rgb(233, 196, 106);
+    box-shadow: 5px 5px rgb(244, 162, 97);
+}
+
+.yellowtitle {
+    background-color: rgb(233, 196, 106);
+}
+
+.orange {
+    border:solid rgb(244, 162, 97);
+    box-shadow: 5px 5px rgb(231, 111, 81);
+}
+
+.orangetitle {
+    background-color: rgb(244, 162, 97);
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-border {
+    border: solid rgb(244, 162, 97);
+    box-shadow: 5px 5px rgb(231, 111, 81);
 }
