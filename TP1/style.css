@@ -1,0 +1,27 @@
+/*TODO 
+    fix word wrap */
+body {
+    background-color: rgb(44, 43, 43);
+    font-family: Arial, Helvetica, sans-serifserif;
+    color: whitesmoke;
+}
+
+div.cardparagraph {
+    word-wrap: normal;
+}
+
+div.cardtitle {
+    border: solid rgb(12, 100, 100);
+    background-color: rgb(12, 100, 100);
+    height: 40px;
+}
+
+div.card-box {
+    float:left;
+    width:33%;
+    height:360px;
+    border:solid rgb(12, 100, 100);
+    margin: 0px;
+    margin-bottom: 10px;
+    background-color:  rgb(56, 56, 56);
+}

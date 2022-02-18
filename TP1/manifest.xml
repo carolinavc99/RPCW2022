@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scmaglev>
+    <metainformacao>
+        <titulo>Japan's SCMaglev Train</titulo>
+        <data>18/02/2022</data>
+        <autor>Carolina da Torre Vila Chã</autor>
+        <uc>RPCW</uc>
+    </metainformacao>
+
+    <resumo> <!-- lista de paragrafos -->
+        <paragrafo></paragrafo> <!-- resumo do trabalho -->
+    </resumo>
+    
+    <resultados> <!-- ficheiros -->
+        <resultado>tp1_pagina_web.html</resultado>
+        <resultado>style.css</resultado>
+    </resultados>
+</scmaglev>
