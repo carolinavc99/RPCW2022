@@ -1,5 +1,4 @@
-/*TODO 
-    fix word wrap */
+/* base look of the page */
 body {
     background-color: rgb(38, 70, 83);
     font-family: Arial, Helvetica, sans-serif;
@@ -7,11 +6,15 @@ body {
     font-weight: 550;
 }
 
+/* just leaves a space whenever a new title shows up */
 h2 {
-    margin-top: 30px;
+    padding-top: 30px;
 }
 
-.author {
+/* orange button-like look */
+.orange-button {
+    font-size: large;
+    font-weight: 550;
     text-align: left;
     color: whitesmoke;
     border: solid rgb(244, 162, 97);
@@ -23,11 +26,21 @@ h2 {
     box-shadow: 3px 3px rgb(231, 111, 81);
 }
 
+/* defines the big margins so that text is more readable */
 .big-text {
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
+/* align text at center of the page */
+.center-text {
+    text-align: center;
+}
+
+/* 
+    CARDS
+*/
+/* margin definition for the card group as a whole */
 .boxes {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -35,20 +48,19 @@ h2 {
     margin-right: auto;
 }
 
-.center-text {
-    text-align: center;
-}
-
+/* align text inside each card */
 .cardparagraph {
     word-wrap: normal;
     padding: 8px;
 }
 
+/* align card titles */
 .cardtitle {
     text-align: center;
     padding: 1px;
 }
 
+/* base look of each card - no color definition */
 .card-box {
     float:left;
     width: 23%;
@@ -60,73 +72,92 @@ h2 {
     background-color: rgb(56, 56, 56);
 }
 
+/* blue box */
 .blue {
     border:solid rgb(10, 82, 82);
     box-shadow: 5px 5px rgb(7, 63, 63);
 }
-
+/* blue box - title */
 .bluetitle {
     background-color: rgb(10, 82, 82);
 }
 
+/* teal box */
 .teal {
     border:solid rgb(42, 157, 143);
     box-shadow: 5px 5px rgb(10, 82, 82);
 }
 
+/* teal box title */
 .tealtitle {
     background-color: rgb(42, 157, 143);
 }
 
+/* yellow box */
 .yellow {
     border:solid rgb(233, 196, 106);
     box-shadow: 5px 5px rgb(244, 162, 97);
 }
 
+/* yellow box title */
 .yellowtitle {
     background-color: rgb(233, 196, 106);
 }
 
+/* orange box */
 .orange {
     border:solid rgb(244, 162, 97);
     box-shadow: 5px 5px rgb(231, 111, 81);
 }
 
+/* orange box title */
 .orangetitle {
     background-color: rgb(244, 162, 97);
 }
 
+/*
+    IMAGE MANIPULATION
+*/
+
+/* centering image */
 .center-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.map-border {
+/* orange image border */
+.image-border-orange {
     margin-top: 10px;
     border: solid rgb(244, 162, 97);
     box-shadow: 5px 5px rgb(231, 111, 81);
 }
 
+/* teal image border */
 .image-border-teal {
     margin-top: 10px;
     border: solid rgb(42, 157, 143);
     box-shadow: 5px 5px rgb(10, 82, 82);
 }
 
+/* yellow image border */
 .image-border-yellow {
     margin-top: 10px;
     border: solid rgb(233, 196, 106);
     box-shadow: 5px 5px rgb(231, 111, 81);
 }
 
-/* DROPDOWN MENU */  
+/* 
+    DROPDOWN MENU
+    
+    this code was adapted from this tutorial: https://www.w3schools.com/howto/howto_css_dropdown.asp
+*/
+/* dropdown menu alignment */
 .dropdown {
-    position: relative;
     display: inline-block;
-    font-size: 15px;
 }
-  
+
+/* look of the menu */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -136,21 +167,25 @@ h2 {
     z-index: 1;
     border-radius: 5px;
 }
-  
+
+/* look of the links inside the menu */
 .dropdown-content a {
     color: rgb(245, 236, 226);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-  
+
+/* change color when hover */
 .dropdown-content a:hover {
     background-color: rgb(231, 111, 81);
     border-radius: 5px;
 }
-  
+
+/* show the menu when hovering */
 .dropdown:hover .dropdown-content {display: block;}
 
+/* fix the position of the nav bar*/
 .fixed {
     position: fixed;
 }
