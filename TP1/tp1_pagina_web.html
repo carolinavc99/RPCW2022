@@ -12,11 +12,22 @@
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     </head>
     <body>
-        <a href="https://github.com/carolinavc99" class="author">Author</a>
+        <div class="fixed">
+            <a href="https://github.com/carolinavc99" class="author">Author</a>
+            <div class="dropdown">
+                <button class="dropdown author">Navigation</button>
+                <div class="dropdown-content">
+                <a href="#History">History</a>
+                <a href="#Map">Map</a>
+                <a href="#SCMaglev">SCMaglev</a>
+                </div>
+            </div> 
+        </div>
+
         <h1 class="center-text">Japan's SCMaglev Train</h1>
 
-        <div class="center-text"><h2>History</h2></div>
-        <div class="paragraph">
+        <div class="center-text" id="History"><h2>History</h2></div>
+        <div class="big-text">
             <p>Railways are the most important means of passenger transportation in Japan, maintaining this status since the late nineteenth century. Government policy promoted railways as an efficient transportation system for a country that lacks fossil fuels and is nearly completely dependent on imports.</p>
 
             <p>Rural land near large cities was acquired cheaply by private railway companies from the late nineteenth century, which then built lines that became the backbone of urban transport between the suburbs and cities formed around the railway lines radiating out from metropolitan areas, similar to suburban growth around railways in other nations.</p>
@@ -24,33 +35,80 @@
             <p>Despite this efficiency, growing affluence and associated car ownership led to road transportation usage increasing to the detriment of rail from the 1960s. The relative share of railways in total passenger kilometers fell from 66.7 percent in 1965 to 42 percent in 1978, and 29.8 percent in 1990, although this still accounted for the largest percentage of the OECD member countries.</p>
         </div>
 
-        <h2 class="center-text">Definitions</h2>
-        <div class="card-box blue">
-            <div class="cardtitle bluetitle"><h3>Shinkansen</h3></div>
-            <p class="cardparagraph">Shinkansen is the Japanese Bullet train which runs from north to south in Japan. There are nine Shinkansen lines in Japan (Hokkaido, Tohoku, Akita, Yamagata, Joetsu, Hokuriku, Tokaido, Sanyo, Kyushu Shinkansen). You can travel easily from Tokyo to several regions such as Nagoya, Osaka, Hakata, Hakadote, Kanazawa, and so on by the Shinkansen. Japanese first Shinkansen is "Tokaido Shinkansen" which opened in 1964.</p>
-        </div>    
+        <div class="boxes">
+            <div class="card-box blue">
+                <div class="cardtitle bluetitle"><h3>Shinkansen</h3></div>
+                <p class="cardparagraph">Shinkansen is the Japanese Bullet train which runs from north to south in Japan. The first Japanese Shinkansen is "Tokaido Shinkansen" which opened in 1964. There are nine Shinkansen lines in Japan:</p> 
+                
+                <ul>
+                    <li>Hokkaido</li>
+                    <li>Tohoku</li>
+                    <li>Akita</li>
+                    <li>Yamagata</li>
+                    <li>Joetsu</li>
+                    <li>Hokuriku</li>
+                    <li>Tokaido</li>
+                    <li>Sanyo</li>
+                    <li>Kyushu Shinkansen</li>
+                </ul>
+            </div>
+            
+            <div class="card-box teal">
+                <div class="cardtitle tealtitle"><h3>Travel</h3></div>
+                <p class="cardparagraph">You can travel easily from Tokyo to several regions, such as:</p>
+                    <ul>
+                        <li>Nagoya</li>
+                        <li>Osaka</li>
+                        <li>Hakata</li>
+                        <li>Hakadote</li>
+                        <li>Kanazawa</li>
+                    </ul>
+                    <p class="cardparagraph">And so on.</p>
+            </div>    
 
-        <div class="card-box teal">
-            <div class="cardtitle tealtitle"><h3>JR</h3></div>
-            <p class="cardparagraph">There are seven JR companies in Japan(JR Hokkaido, JR East, JR Central, JR West, JR Shikoku, JR Kyushu, JR Freight) All JR companies except JR Shikoku and JR Freight have Shinkansen stations. JR companies are established in 1987 after the division and privatization of JNR(Japan National Railway) and JR means "Japan Railway".</p>
+            <div class="card-box yellow">
+                <div class="cardtitle yellowtitle"><h3>JR</h3></div>
+                <p class="cardparagraph">JR companies are established in 1987 after the division and privatization of JNR (Japan National Railway) and JR means "Japan Railway". There are seven JR companies in Japan:</p>
+                
+                <ul>
+                    <li>Hokkaido</li>
+                    <li>East</li>
+                    <li>Central</li>
+                    <li>West</li>
+                    <li>Shikoku</li>
+                    <li>Kyushu</li>
+                    <li>Freight</li>
+                </ul>
+                
+                <p class="cardparagraph">All JR companies except JR Shikoku and JR Freight have Shinkansen stations.</p>
+            </div>
+
+            <div class="card-box orange">
+                <div class="cardtitle orangetitle"><h3>PR Push</h3></div>
+                <p class="cardparagraph">On September 25, 2013, Prime Minister Abe Shinzō, who was in the United States to attend the General Assembly of the United Nations, delivered a speech at the New York Stock Exchange. Along with unveiling his economic growth strategy, dubbed “Abenomics,” Abe lost no time in alluding to the maglev technology to extol Japan's technological strengths. “Making use of this technology would connect New York and Washington, D.C. in less than an hour,” he stated.</p>
+            </div> 
         </div>
 
-        <div class="card-box yellow">
-            <div class="cardtitle yellowtitle"><h3>3rd</h3></div>
-            <p class="cardparagraph">Lorem ipsum.</p>
-        </div>    
-
-        <div class="card-box orange">
-            <div class="cardtitle orangetitle"><h3>4th</h3></div>
-            <p class="cardparagraph">Lorem ipsum yey.</p>
-        </div> 
-
-        <h2 class="center-text">The SCMaglev</h2>
-
-        <!--- continue... -->
-
         <h2 class="center-text">Map</h2>
-        <img class="center-image map-border" src="images/map.jpg" alt="A map of Japan's current railway system, as well as the projected Chūō Shinkansen.">
+        <img id="Map" class="center-image map-border" src="images/map.jpg" alt="A map of Japan's current railway system, as well as the projected Chūō Shinkansen.">
+
+        <h2 class="center-text" id="SCMaglev">The SCMaglev</h2>
+
+        <p class="big-text">The Super Conducting Maglev (SCMaglev) is a magnetic levitation railway system developed by Central Japan Railway Company and the Railway Technical Research Institute.</p>
+
+        <p class="big-text">On 21 April 2015, a manned seven-car L0 Series SCMaglev train reached a speed of 603 km/h, less than a week after the same train clocked 590 km/h, breaking the previous land speed record for rail vehicles of 581 km/h set by a JR Central MLX01 maglev train in December 2003.</p>
+
+        <img class="center-image image-border-teal" src="images/scmaglev.JPG" alt="A photo of the L0 Series SCMaglev. It is white, with a blue line along its top, as well as the characteristic elongated front." style="width:700px;">
+
+        <p class="big-text">The line's route passes through many sparsely populated areas in the Japanese Alps (Akaishi Mountains), but is more direct than the current Tōkaidō Shinkansen route, and time saved through a more direct route was a more important criterion to JR Central than having stations at intermediate population centers.</p>
+        
+        <p class="big-text">Also, the more heavily populated Tōkaidō route is congested, and providing an alternative route if the Tōkaidō Shinkansen were to become blocked by earthquake damage was also a consideration. The route will have a minimum curve radius of 8,000 m (26,000 ft), and a maximum gradient of 4%. This is significantly more than the traditional Shinkansen lines, which top out at 3%. </p>
+
+        <img class="center-image image-border-yellow" src="images/JR-Maglev-MLX01-901_001.jpg" alt="A photo of the L0 Series Maglev. It is white, with a blue line along its top, as well as the characteristic eloganted front." style="width:700px;">
+
+        <p class="big-text">JR Central announced in December 2007 that it planned to raise funds for the construction of the Chūō Shinkansen on its own, without government financing. The total cost, originally estimated at 5.1 trillion yen in 2007, escalated to over 9 trillion yen by 2011.</p> 
+        
+        <p class="big-text">Nevertheless, the company has said it can make a pretax profit of around 70 billion yen in 2026, when the operating costs stabilize. The primary reason for the project's huge expense is that most of the line is planned to run in tunnels (about 86% of the initial section from Tokyo to Nagoya will be underground) with some sections at a depth of 40 m for a total of 100 km in the Tokyo, Nagoya and Osaka areas.</p>
 
     </body>
 </html>

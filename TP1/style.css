@@ -3,9 +3,12 @@
 body {
     background-color: rgb(38, 70, 83);
     font-family: Arial, Helvetica, sans-serif;
-    color: whitesmoke;
-    margin-left: 300px;
-    margin-right: 300px;
+    color:rgb(245, 236, 226);
+    font-weight: 550;
+}
+
+h2 {
+    margin-top: 30px;
 }
 
 .author {
@@ -20,12 +23,25 @@ body {
     box-shadow: 3px 3px rgb(231, 111, 81);
 }
 
+.big-text {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.boxes {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .center-text {
     text-align: center;
 }
 
 .cardparagraph {
     word-wrap: normal;
+    padding: 8px;
 }
 
 .cardtitle {
@@ -36,7 +52,7 @@ body {
 .card-box {
     float:left;
     width: 23%;
-    height:360px;
+    height:410px;
     margin-bottom: 40px;
     margin-top: 10px;
     margin-left: 10px;
@@ -87,6 +103,58 @@ body {
 }
 
 .map-border {
+    margin-top: 10px;
     border: solid rgb(244, 162, 97);
     box-shadow: 5px 5px rgb(231, 111, 81);
+}
+
+.image-border-teal {
+    margin-top: 10px;
+    border: solid rgb(42, 157, 143);
+    box-shadow: 5px 5px rgb(10, 82, 82);
+}
+
+.image-border-yellow {
+    margin-top: 10px;
+    border: solid rgb(233, 196, 106);
+    box-shadow: 5px 5px rgb(231, 111, 81);
+}
+
+/* DROPDOWN MENU */  
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(244, 162, 97);
+    min-width: 160px;
+    box-shadow: 3px 3px rgb(231, 111, 81);
+    z-index: 1;
+    border-radius: 5px;
+}
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: rgb(245, 236, 226);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: rgb(231, 111, 81);
+    border-radius: 5px;
+}
+  
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.fixed {
+    position: fixed;
 }
