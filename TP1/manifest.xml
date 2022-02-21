@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scmaglev>
-    <metainformacao>
+    <meta>
         <titulo>Japan's SCMaglev Train</titulo>
-        <data>18/02/2022</data>
-        <autor>Carolina da Torre Vila Chã</autor>
+        <data>21/02/2022</data>
+        <autor>
+            <name>Carolina da Torre Vila Chã</name>
+            <email>pg47100@alunos.uminho.pt</email>
+            <git>https://github.com/carolinavc99</git>
+        </autor>
         <uc>RPCW</uc>
-    </metainformacao>
+    </meta>
 
-    <resumo> <!-- lista de paragrafos -->
-        <paragrafo></paragrafo> <!-- resumo do trabalho -->
+    <resumo>  <!-- resumo do trabalho -->
+        <paragrafo>O objetivo deste trabalho de casa foi a criação de uma página html. O tema escolhido foi Japão - mais especificamente, o comboio SCMaglev japonês.</paragrafo><!-- lista de paragrafos -->
     </resumo>
     
     <resultados> <!-- ficheiros -->
-        <resultado>tp1_pagina_web.html</resultado>
-        <resultado>style.css</resultado>
+        <link url="./tp1_pagina_web.html">Main file (página html)</link>
+        <link url="images/favicon.ico">Ícon para a página</link>
+        <link url="images/JR-Maglev-MLX01-901_001.jpg">Fotografia SCMaglev (ponte)</link>
+        <link url="images/scmaglev.JPG">Fotografia SCMaglev (estação)</link>
+        <link url="images/map.jpg">Mapa das vias férreas Shinkansen (atual e projetada)</link>
     </resultados>
 </scmaglev>
