@@ -1,4 +1,16 @@
+import re
 # module for cleaning accented letters from text
+
+# creates a fitting file name (no forbidden punctuation)
+def get_movie_file_name(title, year):
+    # replace all illegal characters
+    url = re.sub(r"[ \n\.\'#%`´~+*¨ºª;,:'?!\/\\&{}<>$\"@\|]", "_", str(title))
+    url = re.sub(r"_+\(film\)|_+$|^_+", "", url)
+    url = remove_accents(url)
+    
+    url = url + "(" + str(year) + ").html"
+
+    return url
 
 def remove_accents(text):
     acentos = {
@@ -75,6 +87,5 @@ def remove_accents(text):
     }
     text = [acentos.get(elem, elem) for elem in text]
     text = ''.join(text)
-    print("text -> ", text)
 
     return text 
