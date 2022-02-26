@@ -25,7 +25,7 @@ def build_mainpage_html(movielist, database):
     """
     for movie in movielist:
         page += f"""
-        <li><a href="{database[movie]['url']}">{movie} {database[movie]['year']})</a></li>
+        <li><a href="{database[movie]['url']}">{movie} ({database[movie]['year']})</a></li>
         """
     page += """</ul>
     </body>
