@@ -6,8 +6,20 @@ from gerador_main_page import build_mainpage_html
 def build_movie_html(url, title, year, cast, genres):
     page = f"""<!DOCTYPE html>
 <html>
+    <style>
+            body {{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }}
+            h2, p {{
+                text-align: center;
+            }}
+            ul {{
+                margin-left: 45%;
+            }}
+    </style>
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
         <title>{title}</title>
     </head>
     <body>
@@ -22,7 +34,7 @@ def build_movie_html(url, title, year, cast, genres):
     for actor in cast:
         page += f"\n<li>{actor}</li>"
     
-    page +="\n</ul>\n<h2>Genres</h2>"
+    page +="\n</ul>\n<h2>Genres</h2><ul>"
     
     for genre in genres:
         page += f"\n<li>{genre}</li>"
