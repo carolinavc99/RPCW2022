@@ -25,14 +25,17 @@ http.createServer(function(req,res) {
         })
     }
     // individual movie page
-    else if (myurl.includes(".html")) { // because of this (bad) check, this block of code needs to be last in the if..else chunk (aka immediatly before the error handling code)
-        console.log("myurl " + myurl)
+        /* because of the (bad) condition check, this block of code needs to be last in the 
+        if..else chunk (aka immediatly before the bad route handling code). 
+        It's not a perfect solution but... its something */
+    else if (myurl.includes(".html")) {
         fs.readFile('./pages/movies/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
         })
     }
+    // bad route handling
     else {
         res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
         res.end('<p>Rota não suportada: ' + req.url + '</p>')
