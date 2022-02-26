@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo></titulo>
+        <data>2022-02-22</data>
+        <autor>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
+        </autor>
+        <UC>
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome> 
+        </UC>
+    </meta>
+    
+    <resumo>
+        <p><xref><url></url><texto></texto></xref></p>
+    </resumo>
+
+    <resultados>
+        <resultado url=""></resultado>
+    </resultados>
+</doc>
