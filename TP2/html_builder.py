@@ -19,7 +19,6 @@ def build_movie_html(url, title, year, cast, genres):
     </style>
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
         <title>{title}</title>
     </head>
     <body>

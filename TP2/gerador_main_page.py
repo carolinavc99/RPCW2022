@@ -16,7 +16,6 @@ def build_mainpage_html(movielist, database):
         </style>
         <head>
             <meta charset="UTF-8">
-            <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
             <title>Movies</title>
         </head>
         <body>
