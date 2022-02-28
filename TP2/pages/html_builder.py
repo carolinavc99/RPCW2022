@@ -6,20 +6,10 @@ from gerador_main_page import build_mainpage_html
 def build_movie_html(url, title, year, cast, genres):
     page = f"""<!DOCTYPE html>
 <html>
-    <style>
-            body {{
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }}
-            h2, p {{
-                text-align: center;
-            }}
-            ul {{
-                margin-left: 45%;
-            }}
-    </style>
     <head>
         <meta charset="UTF-8">
         <title>{title}</title>
+        <link rel="stylesheet" href="/moviecss">
     </head>
     <body>
         <h2>Title</h2>

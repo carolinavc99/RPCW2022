@@ -3,20 +3,10 @@ def build_mainpage_html(movielist, database):
     <!DOCTYPE html>
     <!-- Movie Index Page -->
     <html>
-        <style>
-            body {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            h2 {
-                text-align: center;
-            }
-            ul {
-                margin-left: 25%;
-            }
-        </style>
         <head>
             <meta charset="UTF-8">
             <title>Movies</title>
+            <link rel="stylesheet" href="/indexcss">
         </head>
         <body>
             <h2>Movie List</h2>

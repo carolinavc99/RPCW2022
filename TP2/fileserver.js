@@ -10,7 +10,7 @@ http.createServer(function(req,res) {
     
     // landing page
     if (myurl == "/") {
-        fs.readFile('./landing_page.html', function(err,data) {
+        fs.readFile('./pages/landing_page.html', function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
@@ -20,6 +20,27 @@ http.createServer(function(req,res) {
     else if (myurl=="/movies") { 
         fs.readFile('./pages/index.html', function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    else if (myurl == "/landingcss") {
+        fs.readFile('./pages/landing.css', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    else if (myurl == "/indexcss") {
+        fs.readFile('./pages/index.css', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    else if (myurl == "/moviecss") {
+        fs.readFile('./pages/movie.css', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
         })

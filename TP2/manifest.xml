@@ -14,15 +14,21 @@
     </meta>
     
     <resumo>
-        <p>Fileserver e páginas web que permitem ver detalhes sobre vários filmes, a partir de uma base de dados em JSON.</p>
+        <p>Fileserver e páginas web que permitem ver detalhes sobre vários filmes, a partir de uma base de dados em JSON. A pasta "/pages/movies" contém as páginas html dos filmes.</p>
     </resumo>
 
     <resultados>
         <resultado><url>html_builder.py</url><title>Construtor para todas as páginas html.</title></resultado>
         <resultado><url>gerador_main_page.py</url><title>Construtor da página html com a listagem de filmes (index.html).</title></resultado>
         <resultado><url>text_cleaner.py</url><title>Módulo para limpar texto de acentos e outros carateres proibidos para nomes de ficheiros.</title></resultado>
+        
         <resultado><url>landing_page.html</url><title>Página html inicial.</title></resultado>
         <resultado><url>pages/index.html</url><title>Página html com listagem de filmes.</title></resultado>
+        
+        <resultado><url>landing.css</url><title>Css para a página inicial.</title></resultado>
+        <resultado><url>mainpage.css</url><title>Css para a página de listagem.</title></resultado>
+        <resultado><url>movie.css</url><title>Css para a página de cada filme.</title></resultado>
+
         <resultado><url>fileserver.js</url><title>Servidor de ficheiros nodejs.</title></resultado>
         <resultado><url>cinemaATP.json</url><title>Base de dados em formato JSON.</title></resultado>
     </resultados>
