@@ -8,7 +8,7 @@ http.createServer(function(req,res) {
     console.log(req.method + " " + req.url)
     var myurl = url.parse(req.url, true).pathname
     
-    // landing page
+    // landing page html
     if (myurl == "/") {
         fs.readFile('./pages/landing_page.html', function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
@@ -16,7 +16,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
-    // movie index
+    // movie index html
     else if (myurl=="/movies") { 
         fs.readFile('./pages/index.html', function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
@@ -24,6 +24,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
+    // lading page css
     else if (myurl == "/landingcss") {
         fs.readFile('./pages/landing.css', function(err,data) {
             res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
@@ -31,6 +32,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
+    // movie index css
     else if (myurl == "/indexcss") {
         fs.readFile('./pages/index.css', function(err,data) {
             res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
@@ -38,6 +40,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
+    // individual movie page css
     else if (myurl == "/moviecss") {
         fs.readFile('./pages/movie.css', function(err,data) {
             res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
@@ -45,7 +48,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
-    // individual movie page
+    // individual movie page html
         /* because of the (bad) condition check, this block of code needs to be last in the 
         if..else chunk (aka immediatly before the bad route handling code). 
         It's not a perfect solution but... its something */
