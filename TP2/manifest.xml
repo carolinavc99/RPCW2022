@@ -23,10 +23,10 @@
         <resultado><url>text_cleaner.py</url><title>Módulo para limpar texto de acentos e outros carateres proibidos para nomes de ficheiros.</title></resultado>
         
         <resultado><url>landing_page.html</url><title>Página html inicial.</title></resultado>
-        <resultado><url>pages/index.html</url><title>Página html com listagem de filmes.</title></resultado>
+        <resultado><url>index.html</url><title>Página html com listagem de filmes.</title></resultado>
         
         <resultado><url>landing.css</url><title>Css para a página inicial.</title></resultado>
-        <resultado><url>mainpage.css</url><title>Css para a página de listagem.</title></resultado>
+        <resultado><url>index.css</url><title>Css para a página de listagem.</title></resultado>
         <resultado><url>movie.css</url><title>Css para a página de cada filme.</title></resultado>
 
         <resultado><url>fileserver.js</url><title>Servidor de ficheiros nodejs.</title></resultado>
