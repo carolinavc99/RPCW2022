@@ -1,5 +1,6 @@
 import json
 import re
+from string import capwords
 from text_cleaner import  get_movie_file_name
 from gerador_main_page import build_mainpage_html
 
@@ -12,23 +13,28 @@ def build_movie_html(url, title, year, cast, genres):
         <link rel="stylesheet" href="/moviecss">
     </head>
     <body>
-        <h2>Title</h2>
-        <p>{title}</p>
+        <div class="card">
+            <h2>Title</h2>
+            <p>{title}</p>
+        </div>
 
-        <h2>Year of Release</h2>
-        <p>{str(year)}</p>
+        <div class="card">
+            <h2>Year of Release</h2>
+            <p>{str(year)}</p>
+        </div>
 
-       <h2>Actors</h2>
-       <ul>"""
+        <div class="card">
+            <h2>Actors</h2>
+            <ul>"""
     for actor in cast:
-        page += f"\n<li>{actor}</li>"
+        page += f"\n<li><div class=\"actor\">{actor}</div></li>"
     
-    page +="\n</ul>\n<h2>Genres</h2><ul>"
+    page +="\n</ul>\n</div>\n<div class=\"card\"><h2>Genres</h2><ul>"
     
     for genre in genres:
         page += f"\n<li>{genre}</li>"
     
-    page += "\n</ul>\n</body>\n</html>"
+    page += "\n</ul>\n</div>\n</body>\n</html>"
 
     filepath = "pages/movies/" + url
     with open(filepath, "w", encoding="utf-8") as file:

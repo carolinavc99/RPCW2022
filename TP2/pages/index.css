@@ -1,9 +1,79 @@
 body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
 }
-h2 {
+
+h2, h3 {
     text-align: center;
 }
+
+.movie-list {
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
 ul {
-    margin-left: 25%;
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 4px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* NAV BAR */
+.dropdown {
+    font-size: medium;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: white;
+}
+
+/* look of the menu */
+.dropdown-content {
+    border: 1px black solid;
+    background-color: white;
+    display: none;
+    position: absolute;
+    min-width: 5px;
+    z-index: 1;
+}
+
+/* look of the links inside the menu */
+.dropdown-content a {
+    background-color: white;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0px;
+}
+
+/* change color when hover */
+.dropdown-content a:hover {
+    border-radius: 5px;
+    background-color: darkgrey;
+}
+
+/* show the menu when hovering */
+.dropdown:hover .dropdown-content {
+    display:inline-flex;
+}
+
+/* fix the position of the nav bar*/
+.fixed {
+    position: fixed;
+    z-index: 1;
 }
