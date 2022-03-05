@@ -8,7 +8,15 @@ def get_movie_file_name(title, year):
     url = re.sub(r"_+\(film\)|_+$|^_+", "", url)
     url = remove_accents(url)
     
-    url = url + "(" + str(year) + ").html"
+    url = url + "(" + str(year) + ")_movie.html"
+
+    return url
+
+def get_type_file_name(type, string):
+    url = re.sub(r"[ \n\.\'#%`´~+*¨ºª;,:'?!\/\\&{}<>$\"@\|]", "_", str(string))
+    url = re.sub(r"_+\(film\)|_+$|^_+", "", url)
+    url = remove_accents(url)
+    url += f"_{type}.html"
 
     return url
 

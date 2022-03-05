@@ -49,11 +49,24 @@ http.createServer(function(req,res) {
         })
     }
     // individual movie page html
-        /* because of the (bad) condition check, this block of code needs to be last in the 
-        if..else chunk (aka immediatly before the bad route handling code). 
-        It's not a perfect solution but... its something */
-    else if (myurl.includes(".html")) {
+    else if (myurl.includes("_movie.html")) {
         fs.readFile('./pages/movies/' + myurl, function(err,data) {
+            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    // individual actor page css
+    else if (myurl == "/actorcss") {
+        fs.readFile('./pages/actor.css', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    // individual actor page html
+    else if (myurl.includes("_actor.html")) {
+        fs.readFile('./pages/actors/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
