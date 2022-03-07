@@ -56,6 +56,29 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
+    // individual actor page html
+    else if (myurl.includes("_cast.html")) {
+        fs.readFile('./pages/actors/' + myurl, function(err,data) {
+            console.log("Entrou num ator")
+            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    else if (myurl.includes("_genres.html")) {
+        fs.readFile('./pages/genres/' + myurl, function(err,data) {
+            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
+    else if (myurl.includes("_years.html")) {
+        fs.readFile('./pages/years/' + myurl, function(err,data) {
+            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
+    }
     // individual actor page css
     else if (myurl == "/typecss") {
         fs.readFile('./pages/type.css', function(err,data) {
@@ -64,14 +87,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
-    // individual actor page html
-    else if (myurl.includes("_cast.html")) {
-        fs.readFile('./pages/actors/' + myurl, function(err,data) {
-            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
-            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
-            res.end()
-        })
-    }
+    
     // bad route handling
     else {
         res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})

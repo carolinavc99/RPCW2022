@@ -9,7 +9,6 @@ def get_urltitle_by_type(type, name, database):
     for title, info in database.items():
         if ((type == "cast" or type == "genres") and name in info[type]) or (type == "year" and name == str(info[type])):
             movies.append((database[title].get('url'), title))
-
     
     return movies
 
@@ -23,7 +22,7 @@ def build_html_by_type():
     for title, info in database.items():
         #print("title->", title, "|| info->", info)
 
-############################################# ACTOR
+############################################# ACTORS
         for actor in info['cast']:
             filepath = "pages/actors/" + get_type_file_name("cast", actor)
 
@@ -39,20 +38,14 @@ def build_html_by_type():
         <body>
             <h1>{actor}'s Appearances</h1>"""
 
-                # get corresponding movies
-                # i know this is slow but this is the second time im re-doing this
                 movies = get_urltitle_by_type("cast", actor, database)
                 for url, title in movies:
-                    page += f"""\n<a href="/{url}">{title}</a>"""
-
-                page += """
-            </body>
-        </html>"""
+                    page += f"""\n<a href="{url}">{title}</a></body></html>"""
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
 
-############################################# GENRE
+############################################# GENRES
         for genre in info['genres']:
             filepath = "pages/genres/" + get_type_file_name("genres", genre)
 
@@ -68,20 +61,14 @@ def build_html_by_type():
         <body>
             <h1>{genre} Movies</h1>"""
 
-                # get corresponding movies
-                # i know this is slow but this is the second time im re-doing this
                 movies = get_urltitle_by_type("genres", genre, database)
                 for url, title in movies:
-                    page += f"""\n<a href="/{url}">{title}</a>"""
-
-                page += """
-            </body>
-        </html>"""
+                    page += f"""\n<a href="{url}">{title}</a></body></html>"""
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
 
-############################################# YEAR    
+############################################# YEARS 
         year = info['year']
         filepath = "pages/years/" + get_type_file_name("year", year)
 
@@ -97,15 +84,9 @@ def build_html_by_type():
         <body>
             <h1>Movies from {year}</h1>"""
 
-            # get corresponding movies
-            # i know this is slow but this is the second time im re-doing this
             movies = get_urltitle_by_type("year", year, database)
             for url, title in movies:
-                page += f"""\n<a href="/{url}">{title}</a>"""
-
-            page += """
-            </body>
-        </html>"""
+                page += f"""\n<a href="{url}">{title}</a></body></html>"""
 
             with open(filepath, "w", encoding="utf-8") as file:
                 file.write(page)
