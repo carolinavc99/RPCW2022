@@ -71,7 +71,7 @@ http.createServer(function(req,res) {
             res.end()
         })
     }
-    else if (myurl.includes("_years.html") == true) {
+    else if (myurl.includes("_year.html") == true) {
         fs.readFile('./pages/years/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
