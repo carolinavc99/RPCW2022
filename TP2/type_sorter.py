@@ -7,9 +7,9 @@ def get_urltitle_by_type(type, name, database):
     # array of movie tuples = (url, title)
     movies = []
     for title, info in database.items():
-        if ((type == "cast" or type == "genres") and name in info[type]) or (type == "year" and name == str(info[type])):
+        if ((type == "cast" or type == "genres") and name in info[type]) or (type == "year" and name == info["year"]):
             movies.append((database[title].get('url'), title))
-    
+
     return movies
 
 # builds the entity pages
@@ -36,13 +36,14 @@ def build_html_by_type():
             <link rel="stylesheet" href="/typecss">
         </head>
         <body>
-            <h1>{actor}'s Appearances</h1>"""
+            <h1>{actor}'s Appearances</h1>
+            <ul>"""
 
                 movies = get_urltitle_by_type("cast", actor, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a>"""
+                    page += f"""\n<li><a href="{url}">{title}</a></li>"""
 
-                page += "</body></html>"
+                page += "</ul></body></html>"
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
@@ -61,13 +62,14 @@ def build_html_by_type():
             <link rel="stylesheet" href="/typecss">
         </head>
         <body>
-            <h1>{genre} Movies</h1>"""
+            <h1>{genre} Movies</h1>
+            <ul>"""
 
                 movies = get_urltitle_by_type("genres", genre, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a>"""
+                    page += f"""\n<li><a href="{url}">{title}</a></li>"""
                 
-                page += """</body></html>"""
+                page += """</ul></body></html>"""
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
@@ -86,12 +88,13 @@ def build_html_by_type():
             <link rel="stylesheet" href="/typecss">
         </head>
         <body>
-            <h1>Movies from {year}</h1>"""
+            <h1>Movies from {year}</h1>
+            <ul>"""
 
             movies = get_urltitle_by_type("year", year, database)
             for url, title in movies:
-                page += f"""\n<a href="{url}">{title}</a>"""
-            page += """</body></html>"""
+                page += f"""\n<li><a href="{url}">{title}</a></li>"""
+            page += """</ul></body></html>"""
 
             with open(filepath, "w", encoding="utf-8") as file:
                 file.write(page)
