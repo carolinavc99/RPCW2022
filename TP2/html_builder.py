@@ -6,6 +6,7 @@ from gerador_main_page import build_mainpage_html
 from type_sorter import build_html_by_type
 
 def build_movie_html(url, title, year, cast, genres):
+    yearurl = get_type_file_name("year", str(year))
     page = f"""<!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +22,7 @@ def build_movie_html(url, title, year, cast, genres):
 
         <div class="card">
             <h2>Year of Release</h2>
-            <p>{str(year)}</p>
+            <a class="round-list-item" href="/{yearurl}">{str(year)}</a>
         </div>
 
         <div class="card">
