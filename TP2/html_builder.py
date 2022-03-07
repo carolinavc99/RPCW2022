@@ -28,12 +28,13 @@ def build_movie_html(url, title, year, cast, genres):
             <h2>Actors</h2>"""
     for actor in cast:
         actorurl = get_type_file_name("cast", actor)
-        page += f"""\n<link class=\"round-list-item\" href="{actorurl}">{actor}</link>"""
+        page += f"""\n<a class="round-list-item" href="/{actorurl}">{actor}</a>"""
     
     page +="\n</div>\n<div class=\"card\"><h2>Genres</h2>"
     
     for genre in genres:
-        page += f"\n<div class=\"round-list-item\">{genre}</div>"
+        genreurl = get_type_file_name("genres", genre)
+        page += f"""\n<a class="round-list-item" href="/{genreurl}">{genre}</a>"""
     
     page += "\n</div>\n</body>\n</html>"
 

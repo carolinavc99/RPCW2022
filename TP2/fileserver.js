@@ -49,7 +49,7 @@ http.createServer(function(req,res) {
         })
     }
     // individual movie page html
-    else if (myurl.includes("_movie.html")) {
+    else if (myurl.includes("_movie.html") == true) {
         fs.readFile('./pages/movies/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
@@ -57,22 +57,21 @@ http.createServer(function(req,res) {
         })
     }
     // individual actor page html
-    else if (myurl.includes("_cast.html")) {
+    else if (myurl.includes("_cast.html") == true) {
         fs.readFile('./pages/actors/' + myurl, function(err,data) {
-            console.log("Entrou num ator")
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
         })
     }
-    else if (myurl.includes("_genres.html")) {
+    else if (myurl.includes("_genres.html") == true) {
         fs.readFile('./pages/genres/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
         })
     }
-    else if (myurl.includes("_years.html")) {
+    else if (myurl.includes("_years.html") == true) {
         fs.readFile('./pages/years/' + myurl, function(err,data) {
             res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}

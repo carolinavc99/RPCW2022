@@ -24,7 +24,7 @@ def build_html_by_type():
 
 ############################################# ACTORS
         for actor in info['cast']:
-            filepath = "pages/actors/" + get_type_file_name("cast", actor)
+            filepath = "pages/actors/" + get_type_file_name("cast", actor) # "_cast.html"
 
             # if actor page hasn't been done yet
             if not exists(filepath):
@@ -40,7 +40,9 @@ def build_html_by_type():
 
                 movies = get_urltitle_by_type("cast", actor, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a></body></html>"""
+                    page += f"""\n<a href="{url}">{title}</a>"""
+
+                page += "</body></html>"
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
@@ -63,7 +65,9 @@ def build_html_by_type():
 
                 movies = get_urltitle_by_type("genres", genre, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a></body></html>"""
+                    page += f"""\n<a href="{url}">{title}</a>"""
+                
+                page += """</body></html>"""
 
                 with open(filepath, "w", encoding="utf-8") as file:
                     file.write(page)
@@ -86,7 +90,8 @@ def build_html_by_type():
 
             movies = get_urltitle_by_type("year", year, database)
             for url, title in movies:
-                page += f"""\n<a href="{url}">{title}</a></body></html>"""
+                page += f"""\n<a href="{url}">{title}</a>"""
+            page += """</body></html>"""
 
             with open(filepath, "w", encoding="utf-8") as file:
                 file.write(page)
