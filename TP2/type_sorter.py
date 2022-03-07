@@ -3,6 +3,7 @@ from os.path import exists
 from text_cleaner import get_type_file_name
 
 def get_urltitle_by_type(type, name, database):
+    # type must be "cast", "genres", or "year"
     # array of movie tuples = (url, title)
     movies = []
     for title, info in database.items():
@@ -20,6 +21,7 @@ def build_html_by_type():
 
     # process each movie
     for title, info in database.items():
+        #print("title->", title, "|| info->", info)
 
 ############################################# ACTOR
         for actor in info['cast']:
@@ -41,7 +43,7 @@ def build_html_by_type():
                 # i know this is slow but this is the second time im re-doing this
                 movies = get_urltitle_by_type("cast", actor, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a>"""
+                    page += f"""\n<a href="/{url}">{title}</a>"""
 
                 page += """
             </body>
@@ -70,7 +72,7 @@ def build_html_by_type():
                 # i know this is slow but this is the second time im re-doing this
                 movies = get_urltitle_by_type("genres", genre, database)
                 for url, title in movies:
-                    page += f"""\n<a href="{url}">{title}</a>"""
+                    page += f"""\n<a href="/{url}">{title}</a>"""
 
                 page += """
             </body>
@@ -99,7 +101,7 @@ def build_html_by_type():
             # i know this is slow but this is the second time im re-doing this
             movies = get_urltitle_by_type("year", year, database)
             for url, title in movies:
-                page += f"""\n<a href="{url}">{title}</a>"""
+                page += f"""\n<a href="/{url}">{title}</a>"""
 
             page += """
             </body>

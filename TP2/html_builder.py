@@ -27,7 +27,7 @@ def build_movie_html(url, title, year, cast, genres):
         <div class="card">
             <h2>Actors</h2>"""
     for actor in cast:
-        actorurl = get_type_file_name("actor", actor)
+        actorurl = get_type_file_name("cast", actor)
         page += f"""\n<div class=\"round-list-item\" href="{actorurl}">{actor}</div>"""
     
     page +="\n</div>\n<div class=\"card\"><h2>Genres</h2>"
