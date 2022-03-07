@@ -1,57 +1,109 @@
 import pickle
+from os.path import exists
 from text_cleaner import get_type_file_name
 
-def get_urltitle_by_type(type, string, database):
-    # Type = actor, genre, year
-    # String = name of actor, genre, year
-
+def get_urltitle_by_type(type, name, database):
     # array of movie tuples = (url, title)
     movies = []
-    if type == "actor":
-        type = "cast"
-    
-    for key, value in database.items():
-        if string in value[type]:
-            movies.append((database[key].get('url'), key))
+    for title, info in database.items():
+        if ((type == "cast" or type == "genres") and name in info[type]) or (type == "year" and name == str(info[type])):
+            movies.append((database[title].get('url'), title))
+
     
     return movies
 
-
-def build_html_by_type(type, string):
+# builds the entity pages
+def build_html_by_type():
+    # load database
     with open('dict_database.pkl', 'rb') as f:
         database = pickle.load(f)
 
-    if type == "actor":
-        filepath = "pages/actors/" + get_type_file_name(type, string)
-        body = f"""<h1>{string}'s Appearances</h1>"""
-    elif type == "genre":
-        filepath = "pages/genres/" + get_type_file_name(type, string)
-        body = f"""<h1>Movies with {string}</h1>"""
-    elif type == "year":
-        filepath = "pages/years/" + get_type_file_name(type, string)
-        body = f"""<h1>Movies from {string}</h1>"""
+    # process each movie
+    for title, info in database.items():
 
-        # page that shows up for a certain actor and shows all the movies he's been in, and links to that movie's page
-    page = f"""<!DOCTYPE html>
+############################################# ACTOR
+        for actor in info['cast']:
+            filepath = "pages/actors/" + get_type_file_name("cast", actor)
+
+            # if actor page hasn't been done yet
+            if not exists(filepath):
+                page = f"""<!DOCTYPE html>
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>{string}</title>
-            <link rel="stylesheet" href="/actorcss">
+            <title>{actor}</title>
+            <link rel="stylesheet" href="/typecss">
         </head>
-        <body>"""
-    page += body
-    
-    # get movies by database
-    movies = get_urltitle_by_type(type, string, database)
-    for url, title in movies:
-        page += f"""\n<a href="{url}">{title}</a>"""
+        <body>
+            <h1>{actor}'s Appearances</h1>"""
 
-    page += """
-    </body>
-</html>"""
+                # get corresponding movies
+                # i know this is slow but this is the second time im re-doing this
+                movies = get_urltitle_by_type("cast", actor, database)
+                for url, title in movies:
+                    page += f"""\n<a href="{url}">{title}</a>"""
 
-    with open(filepath, "w", encoding="utf-8") as file:
-        file.write(page)
+                page += """
+            </body>
+        </html>"""
 
-build_html_by_type("actor", "Sebastian Stan")
+                with open(filepath, "w", encoding="utf-8") as file:
+                    file.write(page)
+
+############################################# GENRE
+        for genre in info['genres']:
+            filepath = "pages/genres/" + get_type_file_name("genres", genre)
+
+            # if genre page hasn't been done yet
+            if not exists(filepath):
+                page = f"""<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>{genre}</title>
+            <link rel="stylesheet" href="/typecss">
+        </head>
+        <body>
+            <h1>{genre} Movies</h1>"""
+
+                # get corresponding movies
+                # i know this is slow but this is the second time im re-doing this
+                movies = get_urltitle_by_type("genres", genre, database)
+                for url, title in movies:
+                    page += f"""\n<a href="{url}">{title}</a>"""
+
+                page += """
+            </body>
+        </html>"""
+
+                with open(filepath, "w", encoding="utf-8") as file:
+                    file.write(page)
+
+############################################# YEAR    
+        year = info['year']
+        filepath = "pages/years/" + get_type_file_name("year", year)
+
+        # if genre page hasn't been done yet
+        if not exists(filepath):
+            page = f"""<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>{year}</title>
+            <link rel="stylesheet" href="/typecss">
+        </head>
+        <body>
+            <h1>Movies from {year}</h1>"""
+
+            # get corresponding movies
+            # i know this is slow but this is the second time im re-doing this
+            movies = get_urltitle_by_type("year", year, database)
+            for url, title in movies:
+                page += f"""\n<a href="{url}">{title}</a>"""
+
+            page += """
+            </body>
+        </html>"""
+
+            with open(filepath, "w", encoding="utf-8") as file:
+                file.write(page)
