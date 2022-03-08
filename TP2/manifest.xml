@@ -21,7 +21,8 @@
         <resultado><url>html_builder.py</url><title>Construtor para todas as páginas html.</title></resultado>
         <resultado><url>gerador_main_page.py</url><title>Construtor da página html com a listagem de filmes (index.html).</title></resultado>
         <resultado><url>text_cleaner.py</url><title>Módulo para limpar texto de acentos e outros carateres proibidos para nomes de ficheiros.</title></resultado>
-        
+        <resultado><url>type_sorter.py</url><title>Módulo para criar os htmls por tipos.</title></resultado>
+
         <resultado><url>landing_page.html</url><title>Página html inicial.</title></resultado>
         <resultado><url>index.html</url><title>Página html com listagem de filmes.</title></resultado>
         
