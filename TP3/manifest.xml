@@ -34,5 +34,9 @@
             <url>pages/style.css</url>
             <title>Código css para o projeto inteiro.</title>
         </resultado>
+        <resultado>
+            <url>README.md</url>
+            <title>Instruções sobre como correr o programa.</title>
+        </resultado>
     </resultados>
 </doc>
