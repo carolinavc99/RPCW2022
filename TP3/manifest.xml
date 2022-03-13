@@ -14,13 +14,25 @@
     </meta>
     
     <resumo>
-        <p>Serviço que manipula registos num servidor criado (porta 4000), de acordo com a informação fornecida por um json-server (porta 3000) de uma Escola de Música.</p>
+        <p>Serviço que manipula registos num servidor criado (porta 4000), de acordo com a informação fornecida por um json-server (porta 3000) de uma Escola de Música. Estão também incluidos neste projeto dois ficheiros JSON: package-lock.json e package.json.</p>
     </resumo>
 
     <resultados>
         <resultado>
-            <url></url>
-            <title></title>
+            <url>db.json</url>
+            <title>Base de Dados da Escola de Música</title>
+        </resultado>
+        <resultado>
+            <url>music_server.js</url>
+            <title>Servidor de ficheiros</title>
+        </resultado>
+        <resultado>
+            <url>pages/landing.html</url>
+            <title>Código html para a página inicial.</title>
+        </resultado>
+        <resultado>
+            <url>pages/style.css</url>
+            <title>Código css para o projeto inteiro.</title>
         </resultado>
     </resultados>
 </doc>

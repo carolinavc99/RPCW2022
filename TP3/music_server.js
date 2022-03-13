@@ -9,35 +9,16 @@ var http = require('http')
 var url = require('url')
 var fs = require('fs');
 
-function generate_landing() {
-    page = `<!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Escola de Música</title>
-        </head>
-        <body>
-            <h2>Escola de Música</h2>
-
-            <h3>Consultar informações</h3>
-            <p href="/alunos">Lista de Alunos</p>
-            <p href="/cursos">Lista de Cursos</p>
-            <p href="/instrumentos">Lista de Instrumentos</p>
-        </body>
-    </html>`
-
-    return page
-}
-
 function generate_alunos(resp) {
     let page = `<!DOCTYPE html>
     <html>
         <head>
             <meta charset="UTF-8">
             <title>Escola de Música</title>
+            <link rel="stylesheet" href="/style">
         </head>
         <body>
-            <h3>Teste</h3>
+            <h3>Lista de Alunos</h3>
         <table>
             <tr>
                 <th>Id</th>
@@ -59,7 +40,7 @@ function generate_alunos(resp) {
             <td> ${p.instrumento} </td>
         </tr>`
     });
-    
+
     page += `</table>
     </body>
 </html>`
@@ -73,35 +54,79 @@ function generate_cursos(resp) {
         <head>
             <meta charset="UTF-8">
             <title>Escola de Música</title>
+            <link rel="stylesheet" href="/style">
         </head>
         <body>
-            <h3>Teste</h3>
+            <h3>Lista de Cursos</h3>
         <table>
             <tr>
                 <th>Id</th>
                 <th>Designação</th>
                 <th>Duração</th>
-                <th>Id Instrumento</th>
+                <th>Id de Instrumento</th>
                 <th>Tipo de Instrumento</th>
             </tr>`
-    
+
+    let cursos = resp.data;
+    cursos.forEach(p => {
+        page += `<tr>
+            <td> ${p.id} </td>
+            <td> ${p.designacao} </td>
+            <td> ${p.duracao} </td>
+            <td> ${p.instrumento.id} </td>
+            <td> ${p.instrumento["#text"]} </td>
+        </tr>`
+    });
+
+    page += `</table>
+    </body>
+</html>`
+
     return page
 }
 
 function generate_instrumentos(resp) {
+    let page = `<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Escola de Música</title>
+            <link rel="stylesheet" href="/style">
+        </head>
+        <body>
+            <h3>Lista de Instrumentos</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+            </tr>`
 
+    let cursos = resp.data;
+    cursos.forEach(p => {
+        page += `<tr>
+            <td> ${p.id} </td>
+            <td> ${p["#text"]} </td>
+        </tr>`
+    });
+
+    page += `</table>
+    </body>
+</html>`
+
+    return page
 }
 
 http.createServer(function(req,res) {
     console.log(req.method + " " + req.url)
     var myurl = url.parse(req.url, true).pathname
 
-
-    // landing page html --- CHANGE ---
+    // landing page html
     if (myurl == "/") {
-        res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
-        res.write(generate_landing())
-        res.end()
+        fs.readFile('./pages/landing.html', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
     }
     // alunos html
     else if (myurl=="/alunos") { 
@@ -115,7 +140,7 @@ http.createServer(function(req,res) {
             console.log(error);
         });
     }
-    // cursos
+    // cursos html
     else if (myurl=="/cursos") {
         res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
         axios.get('http://localhost:3000/cursos')
@@ -127,7 +152,7 @@ http.createServer(function(req,res) {
             console.log(error);
         });
     }
-    // instrumentos
+    // instrumentos html
     else if (myurl=="/instrumentos") {
         res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
         axios.get('http://localhost:3000/instrumentos')
@@ -138,6 +163,13 @@ http.createServer(function(req,res) {
         .catch(function(error) {
             console.log(error);
         });
+    }
+    else if (myurl=="/style") {
+        fs.readFile('./pages/style.css', function(err,data) {
+            res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
+            if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+            res.end()
+        })
     }
     // bad route handling
     else {
