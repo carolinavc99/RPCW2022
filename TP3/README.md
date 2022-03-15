@@ -8,7 +8,7 @@ ___
 
 `json-server .\db.json`
 
-`node .\music_server.js`
+On another terminal, `node .\music_server.js`
 
 Then access `localhost:4000/` on your browser. The default port is 4000 and is indicated on the terminal when you run the program, but it can be changed in `music_server.js` on the "port" variable.
 

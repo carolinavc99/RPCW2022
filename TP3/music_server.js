@@ -18,26 +18,31 @@ function generate_alunos(resp) {
             <link rel="stylesheet" href="/style">
         </head>
         <body>
+            <div class="links">
+                <a class="border" href="/alunos">Alunos</a>
+                <a class="border" href="/cursos">Cursos</a>
+                <a class="border" href="/instrumentos">Instrumentos</a>
+            </div>
             <h3>Lista de Alunos</h3>
         <table>
             <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Curso</th>
-                <th>Ano de Curso</th>
-                <th>Instrumento</th>
+                <th>Id<a class="arrow" href="/alunos?_sort=id&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=id&_order=desc">&#8595</a></th>
+                <th>Nome<a class="arrow" href="/alunos?_sort=nome&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=nome&_order=desc">&#8595</a></th>
+                <th>Data de Nascimento<a class="arrow" href="/alunos?_sort=dataNasc&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=dataNasc&_order=desc">&#8595</a></th>
+                <th>Curso<a class="arrow" href="/alunos?_sort=curso&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=curso&_order=desc">&#8595</a></th>
+                <th>Ano de Curso<a class="arrow" href="/alunos?_sort=anoCurso&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=anoCurso&_order=desc">&#8595</a></th>
+                <th>Instrumento<a class="arrow" href="/alunos?_sort=isntrumento&_order=asc">&#8593</a> <a class="arrow" href="/alunos?_sort=isntrumento&_order=desc">&#8595</a></th>
             </tr>`
     
     let alunos = resp.data;
     alunos.forEach(p => {
         page += `<tr>
-            <td> ${p.id} </td>
-            <td> ${p.nome} </td>
-            <td> ${p.dataNasc} </td>
-            <td> ${p.curso} </td>
-            <td> ${p.anoCurso} </td>
-            <td> ${p.instrumento} </td>
+            <td><a href="/alunos?id=${p.id}"> ${p.id}</a> </td>
+            <td><a href="/alunos?nome=${p.nome}"> ${p.nome}</a> </td>
+            <td><a href="/alunos?dataNasc=${p.dataNasc}"> ${p.dataNasc}</a> </td>
+            <td><a href="/alunos?curso=${p.curso}"> ${p.curso}</a> </td>
+            <td><a href="/alunos?anoCurso=${p.anoCurso}"> ${p.anoCurso}</a> </td>
+            <td><a href="/alunos?instrumento=${p.instrumento}"> ${p.instrumento}</a> </td>
         </tr>`
     });
 
@@ -57,24 +62,29 @@ function generate_cursos(resp) {
             <link rel="stylesheet" href="/style">
         </head>
         <body>
+            <div class="links">
+                <a class="border" href="/alunos">Alunos</a>
+                <a class="border" href="/cursos">Cursos</a>
+                <a class="border" href="/instrumentos">Instrumentos</a>
+            </div>
             <h3>Lista de Cursos</h3>
         <table>
             <tr>
-                <th>Id</th>
-                <th>Designação</th>
-                <th>Duração</th>
-                <th>Id de Instrumento</th>
+                <th>Id<a href="/cursos?_sort=id&_order=asc">&#8593</a> <a href="/cursos?_sort=id&_order=desc">&#8595</a></th>
+                <th>Designação<a href="/cursos?_sort=designacao&_order=asc">&#8593</a> <a href="/cursos?_sort=designacao&_order=desc">&#8595</a></th>
+                <th>Duração<a href="/cursos?_sort=duracao&_order=asc">&#8593</a> <a href="/cursos?_sort=duracao&_order=desc">&#8595</a></th>
+                <th>Id de Instrumento<a href="/cursos?_sort=instrumento.id&_order=asc">&#8593</a> <a href="/cursos?_sort=instrumento.id&_order=desc">&#8595</a></th>
                 <th>Tipo de Instrumento</th>
             </tr>`
 
     let cursos = resp.data;
     cursos.forEach(p => {
         page += `<tr>
-            <td> ${p.id} </td>
-            <td> ${p.designacao} </td>
-            <td> ${p.duracao} </td>
-            <td> ${p.instrumento.id} </td>
-            <td> ${p.instrumento["#text"]} </td>
+            <td><a href="/cursos?id=${p.id}"</a>${p.id} </td>
+            <td><a href="/cursos?designacao=${p.designacao}"</a>${p.designacao} </td>
+            <td><a href="/cursos?duracao=${p.duracao}"</a>${p.duracao} </td>
+            <td><a href="/cursos?instrumento.id=${p.instrumento.id}"</a>${p.instrumento.id} </td>
+            <td>${p.instrumento["#text"]} </td>
         </tr>`
     });
 
@@ -94,17 +104,22 @@ function generate_instrumentos(resp) {
             <link rel="stylesheet" href="/style">
         </head>
         <body>
+            <div class="links">
+                <a class="border" href="/alunos">Alunos</a>
+                <a class="border" href="/cursos">Cursos</a>
+                <a class="border" href="/instrumentos">Instrumentos</a>
+            </div>
             <h3>Lista de Instrumentos</h3>
         <table>
             <tr>
-                <th>Id</th>
+                <th>Id<a href="/instrumentos?_sort=id&_order=asc">&#8593</a> <a href="/instrumentos?_sort=id&_order=desc">&#8595</a></th>
                 <th>Tipo</th>
             </tr>`
 
     let cursos = resp.data;
     cursos.forEach(p => {
         page += `<tr>
-            <td> ${p.id} </td>
+            <td><a href="/instrumentos/?id=${p.id}"> ${p.id}</a></td>
             <td> ${p["#text"]} </td>
         </tr>`
     });
@@ -118,7 +133,7 @@ function generate_instrumentos(resp) {
 
 http.createServer(function(req,res) {
     console.log(req.method + " " + req.url)
-    var myurl = url.parse(req.url, true).pathname
+    var myurl = url.parse(req.url, true).path
 
     // landing page html
     if (myurl == "/") {
@@ -170,6 +185,39 @@ http.createServer(function(req,res) {
             if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
             res.end()
         })
+    }
+    else if (myurl.includes("alunos?")) {
+        res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+        axios.get('http://localhost:3000' + myurl)
+            .then( function(resp) {
+                res.write(generate_alunos(resp));
+                res.end()
+            })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+    else if (myurl.includes("cursos?")) {
+        res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+        axios.get('http://localhost:3000' + myurl)
+            .then( function(resp) {
+                res.write(generate_cursos(resp));
+                res.end()
+            })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+    else if (myurl.includes("instrumentos?")) {
+        res.writeHead(200, {'Content-type':'text/html; charset=utf-8'})
+        axios.get('http://localhost:3000' + myurl)
+            .then( function(resp) {
+                res.write(generate_instrumentos(resp));
+                res.end()
+            })
+        .catch(function(error) {
+            console.log(error);
+        });
     }
     // bad route handling
     else {
