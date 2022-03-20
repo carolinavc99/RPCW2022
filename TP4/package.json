@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "axios": "^0.26.1",
+    "nodemon": "^2.0.15"
+  },
+  "name": "tp4",
+  "version": "1.0.0",
+  "description": "lista de tarefas",
+  "main": "tarefas.js",
+  "scripts": {
+    "dev": "nodemon tarefas.js",
+    "run": "node tarefas.js"
+  },
+  "author": "Carolina Vc",
+  "license": "ISC"
+}
