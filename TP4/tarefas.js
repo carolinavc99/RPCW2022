@@ -150,7 +150,7 @@ function geraPagina( tarefas, d){
     pagHTML += done 
     pagHTML += 
         `</div>
-        <div class="footer">
+            <div class="footer">
             <address>Gerado por tarefaServer::RPCW2022 em ${d}</address>
         </div>
     </body>
