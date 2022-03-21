@@ -136,6 +136,37 @@ var tarefaServer = http.createServer(function (req, res) {
                         res.end()
                     })
             }
+            else if (req.url.includes("toDONE")) {
+                let id = req.url.split("/")[2]
+                let info = ""
+                axios.get(`http://localhost:3000/tarefas/${id}`)
+                    .then(response => {
+                        info = response.data
+                    }).then( put =>
+                        axios.put(`http://localhost:3000/tarefas/${info.id}`, {
+                            status:"DONE",
+                            desc: info.desc
+                        })
+                        .then(resp => {
+                            res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                            res.write("<p>Feito</p>");
+                            res.end()
+                        })
+                        .catch(erro => {
+                            res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                            res.write('<p>Erro no PUT: ' + erro + '</p>')
+                            res.write('<p><a href="/">Voltar</a></p>')
+                            res.end()                    
+                        })
+                    ).catch(erro => {
+                        res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                        res.write('<p>Erro no PUT: ' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()                    
+                    })
+
+                
+            }
             else {
                 res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
                 res.write("<p>" + req.method + " " + req.url + " não suportado neste serviço.</p>")
@@ -164,22 +195,6 @@ var tarefaServer = http.createServer(function (req, res) {
                 res.write('<p>Recebi um POST não suportado.</p>')
                 res.write('<p><a href="/">Voltar</a></p>')
                 res.end()
-            }
-            break
-        case "PUT":
-            if (req.url.includes("toDONE")) {
-                recuperaInfo(req, resultado => {
-                    console.log('PUT de tarefa:' + JSON.stringify(resultado))
-                    axios.put(`https://localhost:3000/tarefas/2`, {
-                        status: "DONE",
-                        desc: resultado.desc
-                    })
-                    .catch(erro => {
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Não foi possível mudar o tipo da tarefa</p>")
-                        res.end()
-                    })
-                })
             }
             break
         default: 
