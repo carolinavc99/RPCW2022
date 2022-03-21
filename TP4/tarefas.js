@@ -60,7 +60,27 @@ function geraPutConfirm(tarefa, d){
     `
 }
 
-// Lista de Tarefas
+function geraDeleteConfirm(tarefa, d){
+    return `
+    <html>
+    <head>
+        <title>DELETE receipt: ${tarefa.id}</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="stylesheet" href="/tarefas.css"/>
+    </head>
+    <body>
+        <h2>Tarefa ${tarefa.id}: "${tarefa.desc}" apagada </h2>
+
+        <footer>
+            <address>Gerado por tarefaServer::RPCW2022 em ${d} - [<a href="/">Voltar</a>]</address>
+        </footer>
+    </div>
+</body>
+</html>
+    `
+}
+
 function geraPagina( tarefas, d){
   let pagHTML = `
     <html>
@@ -94,21 +114,30 @@ function geraPagina( tarefas, d){
     let todo = `<div class = "lista">
                     <h3>TODO</h3>
                     <table>`
-    tarefas.forEach( t => {
+    // iterate in reverse order since we want by time of addition
+    tarefas.slice().reverse().forEach( t => {
         if (t.status == "DONE") {
             done += `
-            <td>
-            <a class="check" href="/tarefas/${t.id}/toTODO">☑</a>
-            ${t.desc}
-        </td>
+            <tr>
+                <td class="tarefa">
+                    <p>${t.desc}</p>
+                </td>
+                <td>
+                    <a class="check uncheck" href="/tarefas/${t.id}/toTODO">☑</a>
+                    <a class="check delete" href="/tarefas/${t.id}/delete">☒</a>
+                <td>
+            </tr>
             `
         }
         else {
             todo += `
             <tr>
+                <td class="tarefa">
+                    <p>${t.desc}</p>
+                </td>
                 <td>
-                    <a class="check" href="/tarefas/${t.id}/toDONE">☐</a>
-                    ${t.desc}
+                    <a class="check docheck" href="/tarefas/${t.id}/toDONE">☐</a>
+                    <a class="check delete" href="/tarefas/${t.id}/delete">☒</a>
                 </td>
             </tr>
         `
@@ -168,7 +197,7 @@ var tarefaServer = http.createServer(function (req, res) {
                 axios.get(`http://localhost:3000/tarefas/${id}`)
                     .then(response => {
                         info = response.data
-                    }).then( put =>
+                    }).then(put =>
                         axios.put(`http://localhost:3000/tarefas/${info.id}`, {
                             status: stat,
                             desc: info.desc
@@ -192,6 +221,32 @@ var tarefaServer = http.createServer(function (req, res) {
                     })
 
                 
+            }
+            else if (req.url.match(/\/tarefas\/[0-9]+\/delete/)) {
+                let id = req.url.split("/")[2]
+                let info = ""
+                axios.get(`http://localhost:3000/tarefas/${id}`)
+                    .then(response => {
+                        info = response.data
+                    }).then( del =>
+                        axios.delete(`http://localhost:3000/tarefas/${info.id}`)
+                        .then(resp => {
+                            res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                            res.write(geraDeleteConfirm(info, d));
+                            res.end()
+                        })
+                        .catch(erro => {
+                            res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                            res.write('<p>Erro no PUT: ' + erro + '</p>')
+                            res.write('<p><a href="/">Voltar</a></p>')
+                            res.end()                    
+                        })
+                    ).catch(erro => {
+                        res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
+                        res.write('<p>Erro no PUT: ' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()                    
+                    })
             }
             else {
                 res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
