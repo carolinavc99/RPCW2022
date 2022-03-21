@@ -28,10 +28,31 @@ function geraPostConfirm(tarefa, d){
         <link rel="stylesheet" href="/tarefas.css"/>
     </head>
     <body>
-        <h2 class="">Tarefa ${tarefa.id}: "${tarefa.desc}" inserida</h2>
+        <h2>Tarefa ${tarefa.id}: "${tarefa.desc}" inserida</h2>
 
         <footer>
-            <address>Gerado por galuno::RPCW2022 em ${d} - [<a href="/">Voltar</a>]</address>
+            <address>Gerado por tarefaServer::RPCW2022 em ${d} - [<a href="/">Voltar</a>]</address>
+        </footer>
+    </div>
+</body>
+</html>
+    `
+}
+
+function geraPutConfirm(tarefa, d){
+    return `
+    <html>
+    <head>
+        <title>PUT receipt: ${tarefa.id}</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="stylesheet" href="/tarefas.css"/>
+    </head>
+    <body>
+        <h2>Estado da tarefa ${tarefa.id}: "${tarefa.desc}" alterado </h2>
+
+        <footer>
+            <address>Gerado por tarefaServer::RPCW2022 em ${d} - [<a href="/">Voltar</a>]</address>
         </footer>
     </div>
 </body>
@@ -76,16 +97,17 @@ function geraPagina( tarefas, d){
     tarefas.forEach( t => {
         if (t.status == "DONE") {
             done += `
-                <tr>
-                    <td>${t.desc}</td>
-                </tr>
+            <td>
+            <a class="check" href="/tarefas/${t.id}/toTODO">☑</a>
+            ${t.desc}
+        </td>
             `
         }
         else {
             todo += `
             <tr>
                 <td>
-                    <a class="check" href="/tarefas/${t.id}/toDONE">☑</a>
+                    <a class="check" href="/tarefas/${t.id}/toDONE">☐</a>
                     ${t.desc}
                 </td>
             </tr>
@@ -100,7 +122,7 @@ function geraPagina( tarefas, d){
     pagHTML += 
         `</div>
         <div class="footer">
-            <address>Gerado por tarefas::RPCW2022 em ${d}</address>
+            <address>Gerado por tarefaServer::RPCW2022 em ${d}</address>
         </div>
     </body>
 </html>`
@@ -136,7 +158,11 @@ var tarefaServer = http.createServer(function (req, res) {
                         res.end()
                     })
             }
-            else if (req.url.includes("toDONE")) {
+            else if (req.url.match(/\/tarefas\/[0-9]+\/(toDONE|toTODO)/)) {
+                let stat = "DONE"
+                if (req.url.includes("toTODO")) {
+                    stat = "TODO"
+                }
                 let id = req.url.split("/")[2]
                 let info = ""
                 axios.get(`http://localhost:3000/tarefas/${id}`)
@@ -144,12 +170,12 @@ var tarefaServer = http.createServer(function (req, res) {
                         info = response.data
                     }).then( put =>
                         axios.put(`http://localhost:3000/tarefas/${info.id}`, {
-                            status:"DONE",
+                            status: stat,
                             desc: info.desc
                         })
                         .then(resp => {
                             res.writeHead(200, {'Content-type':'text/html;charset=utf-8'})
-                            res.write("<p>Feito</p>");
+                            res.write(geraPutConfirm(info, d));
                             res.end()
                         })
                         .catch(erro => {
