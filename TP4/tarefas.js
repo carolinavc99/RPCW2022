@@ -95,7 +95,7 @@ function geraPagina( tarefas, d){
 
             <form action="/tarefas" method="POST">
                 <label><b>Descrição</b></label>
-                <input type="text" name="desc">
+                <input type="text" name="desc" required="required">
 
                 <label for="status"><b>Status:</b></label>
                 <select id="status" name="status">

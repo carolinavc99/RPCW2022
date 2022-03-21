@@ -20,7 +20,7 @@ h2 {
     border: solid cornflowerblue 2px;
     border-radius: 5px;
     padding-bottom: 20px;
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(231, 231, 231);
 }
 
 .footer {
@@ -37,7 +37,6 @@ h2 {
     margin: 0px 0px;
     border: solid cornflowerblue 2px;
     border-radius: 5px;
-    background-color: gainsboro;
     font-size: large;
     width: fit-content;
     background-color: white;
@@ -66,4 +65,10 @@ h2 {
 
 .docheck {
     color: orange;
+}
+
+input, select {
+    border: solid cornflowerblue 2px;
+    border-radius: 5px;
+    background-color: white;
 }
