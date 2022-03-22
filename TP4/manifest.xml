@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo>TP4 Lista de Tarefas</titulo>
+        <data>2022-03-22</data>
+        <autor>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
+        </autor>
+        <UC>
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome> 
+        </UC>
+    </meta>
+    
+    <resumo>
+        <p>Lista de tarefas com manipulação de ficheiro json.</p>
+    </resumo>
+
+    <resultados>
+        <resultado>
+            <url>tarefas.json</url>
+            <title>Base de Dados das Tarefas</title>
+        </resultado>
+        <resultado>
+            <url>tarefas.js</url>
+            <title>Servidor</title>
+        </resultado>
+        <resultado>
+            <url>public</url>
+            <title>Pasta com páginas públicas estáticas</title>
+        </resultado>
+        <resultado>
+            <url>static.js</url>
+            <title>Servidor de páginas estáticas</title>
+        </resultado>
+    </resultados>
+</doc>
