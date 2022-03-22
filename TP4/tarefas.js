@@ -95,7 +95,7 @@ function geraPagina( tarefas, d){
 
             <form action="/tarefas" method="POST">
                 <label><b>Descrição</b></label>
-                <input type="text" name="desc" required="required">
+                <input type="text" name="desc" required="required" class="inputdescricao">
 
                 <label for="status"><b>Status:</b></label>
                 <select id="status" name="status">
@@ -103,15 +103,15 @@ function geraPagina( tarefas, d){
                   <option value="DONE">DONE</option>
                 </select> 
           
-                <input type="submit" value="Registar"/>
-                <input type="reset" value="Limpar"/> 
+                <input type="submit" value="Registar" class="inputsubmit"/>
+                <input type="reset" value="Limpar" class="inputclean"/> 
             </form>
             <div class="listas">
             `
-    let done = `<div class = "lista">
+    let done = `<div class = "lista listadone">
                     <h3>DONE</h3>
                     <table>`
-    let todo = `<div class = "lista">
+    let todo = `<div class = "lista listatodo">
                     <h3>TODO</h3>
                     <table>`
     // iterate in reverse order since we want by time of addition

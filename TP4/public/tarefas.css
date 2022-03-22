@@ -14,13 +14,21 @@ h2 {
     padding: 0px 20%;
 }
 
+.listadone {
+    margin-right: 10px;
+}
+
+.listatodo {
+    margin-left: 10px;
+}
+
 .lista {
     padding-left: 20px;
     padding-right: 20px;
-    border: solid cornflowerblue 2px;
-    border-radius: 5px;
+    border: solid #f28482 2px;
+    box-shadow: 5px 5px #f5cac3;
     padding-bottom: 20px;
-    background-color: rgb(231, 231, 231);
+    background-color: #f7ede2;
 }
 
 .footer {
@@ -35,17 +43,15 @@ h2 {
     text-decoration: none;
     padding: 0px 5px;
     margin: 0px 0px;
-    border: solid cornflowerblue 2px;
     border-radius: 5px;
     font-size: large;
     width: fit-content;
-    background-color: white;
 }
 
 .tarefa {
     grid-template-columns: auto auto;
     width: 300px;
-    border: solid cornflowerblue 2px;
+    border: solid #f28482 2px;
     border-radius: 5px;
     padding: 5px;
     background-color: white;
@@ -56,20 +62,41 @@ h2 {
 }
 
 .delete {
-    color : red;
+    color : white;
+    background-color: red;
 }
 
 .uncheck {
-    color: greenyellow;
+    background-color: rgb(130, 196, 31);
+    color: white;
 }
 
 .docheck {
-    color: orange;
+    background-color: orange;
+    color: white;
 }
 
 input, select {
-    border: solid cornflowerblue 2px;
+    border: solid #f5cac3 2px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #f7ede2;
 }
 
+.inputdescricao {
+    min-width: 300px;
+}
+
+.inputsubmit {
+    padding: 2px 10px;
+}
+
+.inputclean {
+    padding: 2px 10px;
+}
+
+form {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
