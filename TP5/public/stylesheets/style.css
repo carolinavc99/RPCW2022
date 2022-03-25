@@ -1,0 +1,97 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.id {
+  background-color: #f94144;
+}
+
+.dur {
+  background-color: #f3722c;
+}
+
+.file {
+  background-color: #f8961e;
+}
+
+.filetype {
+  background-color: #f9c74f;
+}
+
+.local {
+  background-color: #90be6d;
+}
+
+.mus {
+  background-color: #43aa8b;
+}
+
+.obs {
+  background-color: #43aa8b;
+}
+
+.obsfiles {
+  background-color: #4d908e;
+}
+
+.prov {
+  background-color: #577590;
+}
+
+.tit {
+  background-color: #277da1;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  color: white;
+}
+
+th, td {
+  padding: 3px 10px;
+  min-width: fit-content;
+}
+
+tr:nth-child(11n) {
+  background-color: #fec5bb;
+}
+tr:nth-child(11n+1) {
+  background-color: #fcd5ce;
+}
+tr:nth-child(11n+2) {
+  background-color: #fae1dd;
+}
+tr:nth-child(11n+3) {
+  background-color: #f8edeb;
+}
+tr:nth-child(11n+4) {
+  background-color: #e8e8e4;
+}
+tr:nth-child(11n+5) {
+  background-color: #d8e2dc;
+}
+tr:nth-child(11n+6) {
+  background-color: #e8e8e4;
+}
+tr:nth-child(11n+7) {
+  background-color: #f8edeb;
+}
+tr:nth-child(11n+8) {
+  background-color: #fae1dd;
+}
+tr:nth-child(11n+9) {
+  background-color: #fcd5ce;
+}
+tr:nth-child(11n+10) {
+  background-color: #fec5bb;
+}

@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1 Lista de Músicas
+  h2 25 de março de 2022
+  table
+    tr
+        th.id ID
+        th.dur DURAÇÃO
+        th.file FILE
+        th.filetype FILE TYPE
+        th.local LOCALIDADE
+        th.mus MÚSICO
+        - if (typeof(musica.obs) !== 'undefined'){
+            th.obs OBSERVAÇÕES
+        -}
+        - if (typeof(musica.obsFiles) !== 'undefined'){
+            th.obsfiles OBS FILES
+        - }
+        th.prov PROVÍNCIA
+        th.tit TÍTULO
+    tr 
+        td 
+            a(href="/arquivo/id/" + musica.id) #{musica.id} 🔍
+        td= musica.duracao
+        td= musica.file 
+        td= musica.fileType
+        td 
+            a(href="/arquivo/local/" + musica.local) #{musica.local} 🔍
+        td= musica.musico 
+        - if (typeof(musica.obs) !== 'undefined'){
+            td= musica.obs
+        -}
+        - if (typeof(musica.obsFiles) !== 'undefined'){
+            td
+                each file in musica.obsFiles
+                    p= file.file
+                    p= file.fileType
+        -}
+        td 
+            a(href="/arquivo/prov/" + musica.prov) #{musica.prov} 🔍
+        td= musica.tit

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo>TP5 Nodejs, json-server, and Express Framework</titulo>
+        <data>2022-03-22</data>
+        <autor>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
+        </autor>
+        <UC>
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome> 
+        </UC>
+    </meta>
+    
+    <resumo>
+        <p>Servidor de um arquivo sonoro utilizando nodejs, express framework, e json-server.</p>
+    </resumo>
+
+    <resultados>
+        <resultado>
+            <url>arquivo_sonoro.json</url>
+            <title>Base de Dados</title>
+        </resultado>
+        <resultado>
+            <url>app.js</url>
+            <title>Servidor</title>
+        </resultado>
+
+    </resultados>
+</doc>
