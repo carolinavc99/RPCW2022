@@ -8,6 +8,23 @@ a {
   color: black;
 }
 
+.lupa {
+  background-color: #fae1dd94;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 5px;
+}
+
+h3.lupa {
+  text-align: left;
+  color: black;
+  background-color: rgb(220, 220, 220);
+  padding: 5px 8px;
+  width:fit-content;
+  margin: 5px 5px;
+  border-radius: 0px;
+}
+
 .id {
   background-color: #f94144;
 }
@@ -32,20 +49,24 @@ a {
   background-color: #43aa8b;
 }
 
-.obs {
+.ins {
   background-color: #43aa8b;
 }
 
-.obsfiles {
-  background-color: #4d908e;
+.obs {
+  background-color: #42817f;
 }
 
-.prov {
+.obsfiles {
   background-color: #577590;
 }
 
-.tit {
+.prov {
   background-color: #277da1;
+}
+
+.tit {
+  background-color: #ce65bc;
 }
 
 table {

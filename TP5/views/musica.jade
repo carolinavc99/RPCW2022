@@ -1,42 +1,49 @@
 extends layout
 
 block content
-  h1 Lista de Músicas
+  h1 
+    a(href="/arquivo") Lista de Músicas
   h2 25 de março de 2022
   table
     tr
-        th.id ID
+        th.id ID 
+            span.lupa 🔍
         th.dur DURAÇÃO
         th.file FILE
         th.filetype FILE TYPE
         th.local LOCALIDADE
+            span.lupa 🔍
         th.mus MÚSICO
-        - if (typeof(musica.obs) !== 'undefined'){
-            th.obs OBSERVAÇÕES
-        -}
-        - if (typeof(musica.obsFiles) !== 'undefined'){
-            th.obsfiles OBS FILES
-        - }
+            span.lupa 🔍
+        th.ins INSTRUMENTO
+            span.lupa 🔍
+        th.obs OBSERVAÇÕES
+        th.obsfiles OBS FILES
         th.prov PROVÍNCIA
+            span.lupa 🔍
         th.tit TÍTULO
     tr 
         td 
-            a(href="/arquivo/id/" + musica.id) #{musica.id} 🔍
+            a(href="/arquivo/id/" + musica.id) #{musica.id}
         td= musica.duracao
         td= musica.file 
         td= musica.fileType
         td 
-            a(href="/arquivo/local/" + musica.local) #{musica.local} 🔍
-        td= musica.musico 
-        - if (typeof(musica.obs) !== 'undefined'){
-            td= musica.obs
-        -}
-        - if (typeof(musica.obsFiles) !== 'undefined'){
-            td
+            a(href="/arquivo/local/" + musica.local) #{musica.local}
+        td
+            if (typeof(musica.musico) !== 'undefined')
+                p= musica.musico 
+        td
+            if (typeof(musica.instrumento) !== 'undefined')
+                a(href="/arquivo/instrumento/" + musica.instrumento) #{musica.instrumento}
+        td
+            if (typeof(musica.obs) !== 'undefined')
+                p= musica.obs
+        td
+            if (typeof(musica.obsFiles) !== 'undefined')
                 each file in musica.obsFiles
                     p= file.file
                     p= file.fileType
-        -}
         td 
-            a(href="/arquivo/prov/" + musica.prov) #{musica.prov} 🔍
+            a(href="/arquivo/prov/" + musica.prov) #{musica.prov}
         td= musica.tit

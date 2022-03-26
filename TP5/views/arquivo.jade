@@ -5,30 +5,41 @@ block content
     a(href="/arquivo") Lista de Músicas
   h2 25 de março de 2022
   if (typeof(flag) !== 'undefined')
-    h3 A filtrar por #{flag}
+    h3.lupa 🔍 A filtrar por #{flag}
 
   table
     tr
-        th.id ID
+        th.id ID 
+            span.lupa 🔍
         th.dur DURAÇÃO
         th.file FILE
         th.filetype FILE TYPE
         th.local LOCALIDADE
+            span.lupa 🔍
         th.mus MÚSICO
+            span.lupa 🔍
+        th.ins INSTRUMENTO
+            span.lupa 🔍
         th.obs OBSERVAÇÕES
         th.obsfiles OBS FILES
         th.prov PROVÍNCIA
+            span.lupa 🔍
         th.tit TÍTULO
     each musica in arquivo
         tr
             td
-                a(href="/arquivo/id/" + musica.id) #{musica.id} 🔍
+                a(href="/arquivo/id/" + musica.id) #{musica.id}
             td= musica.duracao
             td= musica.file 
             td= musica.fileType
             td 
-                a(href="/arquivo/local/" + musica.local) #{musica.local} 🔍
-            td= musica.musico 
+                a(href="/arquivo/local/" + musica.local) #{musica.local}
+            td
+                a(href="/arquivo/musico/" + musica.musico) #{musica.musico}
+            td
+                -if (typeof(musica.instrumento) !== "undefined"){
+                    a(href="/arquivo/instrumento/" + musica.instrumento) #{musica.instrumento}
+                -}
             td
                 - if (typeof(musica.obs) !== 'undefined'){
                     p= musica.obs
@@ -40,5 +51,5 @@ block content
                         p= file.fileType
                 -}
             td
-                a(href="/arquivo/prov/" + musica.prov) #{musica.prov} 🔍
+                a(href="/arquivo/prov/" + musica.prov) #{musica.prov}
             td= musica.tit
