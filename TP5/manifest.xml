@@ -26,6 +26,21 @@
             <url>app.js</url>
             <title>Servidor</title>
         </resultado>
-
+        <resultado>
+            <url>arquivo.jade</url>
+            <title>Código jade para a página inicial</title>
+        </resultado>
+        <resultado>
+            <url>error.jade</url>
+            <title>Código jade para a página de erro.</title>
+        </resultado>
+        <resultado>
+            <url>layout.jade</url>
+            <title>Código jade para a página de layout, que serve de suporte para as outras.</title>
+        </resultado>
+        <resultado>
+            <url>musica.jade</url>
+            <title>Código jade para a página individual de música.</title>
+        </resultado>
     </resultados>
 </doc>
