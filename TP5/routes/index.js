@@ -3,7 +3,14 @@ var router = express.Router();
 var axios = require('axios');
 
 /* GET home page. */
-router.get(/^(\/arquivo)$|^(\/)$/, function(req, res, next) {
+router.get("/", function(req, res, next) {
+  res.redirect("/arquivo")
+  .catch(function(erro) {
+    res.render("error", {error: erro, title: "Erro"});  
+  })
+});
+
+router.get("/arquivo", function(req, res, next) {
   axios.get("http://localhost:3000/arquivo")
   .then(response => {
     var dados = response.data
@@ -69,4 +76,39 @@ router.get("/arquivo/musico/:musico", function(req, res, next) {
   })
 });
 
+/*router.get("/arquivo/inserir", function(req, res, next) {
+  res.render("inserir", {title:"Arquivo Sonoro"});
+});
+
+router.post("/arquivo/inserir", function(req, res, next) {
+  var dados = req.data
+  console.log("dados -> ")
+  console.log( dados)
+  var fich = dados['ficheiros'].split(";")
+  fich.forEach(el => {
+    el = el.split(",")
+    if (el[1]) {
+      dados['obsFiles'] += {"file" : el[0], "fileType" : el[1]}
+    }
+  });
+  axios.post("http://localhost:3000/arquivo", {
+    duracao : dados['duracao'],
+    file : dados['file'],
+    fileType : dados['fileType'],
+    instrumento : dados['instrumento'],
+    local : dados['local'],
+    musico : dados['musico'],
+    obs : dados['obs'],
+    obsFiles : dados['obsFiles'],
+    prov : dados['prov'],
+    tit : dados['tit']
+  })
+  .then( res =>{
+    res.redirect("/arquivo");
+  })
+  .catch(function(erro) {
+    res.render("error", {error: erro, title: "Erro"});  
+  })
+});
+*/
 module.exports = router;

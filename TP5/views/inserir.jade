@@ -1,0 +1,40 @@
+extends layout 
+
+block content 
+  h1
+    a(href="/arquivo") Lista de Músicas
+  h2 25 de março de 2022
+  form(method='post')
+    b Duração
+    input(type='text', name='duracao')
+    
+    b File
+    input(type='text', name='file', required="required")
+    
+    b File Type
+    input(type='text', name='fileType')
+    
+    b Localidade
+    input(type='text', name='local')
+    
+    b Músico
+    input(type='text', name='musico')
+    
+    b Instrumento
+    input(type='text', name='instrumento')
+    
+    b Observações
+    input(type='text', name='obs')
+    
+    b Observações (Ficheiros)
+    input(type='text', name='ficheiros')
+    
+    b Província
+    input(type='text', name='prov')
+    
+    b Título
+    input(type='text', name='tit', required="required")
+    
+    div.butt
+        input(type='submit', value='✔️')
+        input(type='reset', value='🧽️')
