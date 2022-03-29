@@ -76,19 +76,20 @@ router.get("/arquivo/musico/:musico", function(req, res, next) {
   })
 });
 
-/*router.get("/arquivo/inserir", function(req, res, next) {
+router.get("/arquivo/inserir", function(req, res, next) {
   res.render("inserir", {title:"Arquivo Sonoro"});
 });
 
 router.post("/arquivo/inserir", function(req, res, next) {
-  var dados = req.data
-  console.log("dados -> ")
-  console.log( dados)
+  var dados = req.body
+  var listapares = []
+
   var fich = dados['ficheiros'].split(";")
+  /* f1,tipo1;f2,tipo2 */
   fich.forEach(el => {
-    el = el.split(",")
-    if (el[1]) {
-      dados['obsFiles'] += {"file" : el[0], "fileType" : el[1]}
+    par = el.split(",")
+    if (par.length > 1) {
+      listapares.push({"file" : par[0], "fileType" : par[1]})
     }
   });
   axios.post("http://localhost:3000/arquivo", {
@@ -99,16 +100,26 @@ router.post("/arquivo/inserir", function(req, res, next) {
     local : dados['local'],
     musico : dados['musico'],
     obs : dados['obs'],
-    obsFiles : dados['obsFiles'],
+    obsFiles : listapares,
     prov : dados['prov'],
     tit : dados['tit']
   })
-  .then( res =>{
+  .then( resp =>{
     res.redirect("/arquivo");
   })
   .catch(function(erro) {
-    res.render("error", {error: erro, title: "Erro"});  
+    res.render("error", {error: erro, message: erro, title: "Erro"});  
   })
 });
-*/
+
+router.get("/arquivo/delete/:id", function(req, res, next) {
+  axios.delete(`http://localhost:3000/arquivo/${req.params.id}`)
+  .then( resp =>{
+    res.redirect("/arquivo");
+  })
+  .catch(function(erro) {
+    res.render("error", {error: erro, message: erro, title: "Erro"});  
+  })
+});
+
 module.exports = router;

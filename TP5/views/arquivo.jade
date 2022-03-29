@@ -3,7 +3,10 @@ extends layout
 block content
   h1
     a(href="/arquivo") Lista de Músicas
-  h2 25 de março de 2022
+  h2 29 de março de 2022
+  h3 
+    a(href="/arquivo/inserir") Inserir Novo Registo
+
   if (typeof(flag) !== 'undefined')
     h3.lupa 🔍 A filtrar por #{flag}
 
@@ -25,6 +28,7 @@ block content
         th.prov PROVÍNCIA
             span.lupa 🔍
         th.tit TÍTULO
+        th.elim ⚠️ APAGAR
     each musica in arquivo
         tr
             td
@@ -53,3 +57,5 @@ block content
             td
                 a(href="/arquivo/prov/" + musica.prov) #{musica.prov}
             td= musica.tit
+            td 
+                a(href="/arquivo/delete/" + musica.id) ❌

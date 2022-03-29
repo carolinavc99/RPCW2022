@@ -24,23 +24,23 @@
         </resultado>
         <resultado>
             <url>app.js</url>
-            <title>Servidor</title>
+            <title>Servidor de páginas web.</title>
         </resultado>
         <resultado>
-            <url>arquivo.jade</url>
-            <title>Código jade para a página inicial</title>
+            <url>pasta jade</url>
+            <title>Código jade para as várias páginas web do projeto.</title>
         </resultado>
         <resultado>
-            <url>error.jade</url>
-            <title>Código jade para a página de erro.</title>
+            <url>pasta routes</url>
+            <title>Código das rotas para as páginas.</title>
         </resultado>
         <resultado>
-            <url>layout.jade</url>
-            <title>Código jade para a página de layout, que serve de suporte para as outras.</title>
+            <url>stylesheets/style.css</url>
+            <title>Código css para as páginas web.</title>
         </resultado>
         <resultado>
-            <url>musica.jade</url>
-            <title>Código jade para a página individual de música.</title>
+            <url>images/icon.png</url>
+            <title>Ícone utilizado para as páginas.</title>
         </resultado>
     </resultados>
 </doc>

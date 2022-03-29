@@ -16,7 +16,7 @@ a {
   margin: 5px;
 }
 
-h3.lupa {
+h3.lupa, h3>a {
   text-align: left;
   background-color: rgb(220, 220, 220);
   padding: 5px 8px;
@@ -67,6 +67,10 @@ h3.lupa {
 
 .tit {
   background-color: #ce65bc;
+}
+
+.elim {
+  background-color: black;
 }
 
 table {
