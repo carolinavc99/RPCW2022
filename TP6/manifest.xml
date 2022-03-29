@@ -2,10 +2,10 @@
 <doc>
     <meta>
         <titulo></titulo>
-        <data>AAAA-MM-DD</data>
+        <data>2022-03-29</data>
         <autor>
-            <id></id>
-            <nome></nome>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
         </autor>
         <UC>
             <sigla>RPCW2022</sigla>
@@ -14,13 +14,13 @@
     </meta>
     
     <resumo>
-        <p><xref><url></url><texto></texto></xref></p>
+        <p></p>
     </resumo>
 
     <resultados>
         <resultado>
             <url></url>
-            <texto></texto>
+            <title></title>
         </resultado>
     </resultados>
 </doc>
