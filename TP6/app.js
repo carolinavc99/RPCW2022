@@ -45,13 +45,15 @@ app.post('/files', upload.single('myFile'), (req,res) => {
 
   var d = new Date().toISOString().substring(0,16)
   var files = jsonfile.readFileSync('./dbFiles.json')
+  var counter = files.length
 
   files.push({
     date: d,
     name: req.file.originalname,
     mimetype: req.file.mimetype,
     size: req.file.size,
-    description: req.body.myDescription
+    description: req.body.myDescription,
+    id: counter
   })
   
   jsonfile.writeFileSync('./dbFiles.json', files)
@@ -65,6 +67,20 @@ app.get("/style.css", (req, res) => {
     if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
     res.end()
   })
+});
+
+// delete (?)
+app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
+  let id = req.url.split("/")[3]
+  console.log("ID ->", id)
+
+  var files = jsonfile.readFileSync('./dbFiles.json')
+
+  files.splice(id)
+  
+  jsonfile.writeFileSync('./dbFiles.json', files)
+
+  res.redirect("/")
 });
 
 app.listen(4000, () => console.log("Listening on 4000"));

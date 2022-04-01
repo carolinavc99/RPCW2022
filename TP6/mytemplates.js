@@ -37,6 +37,7 @@ function home( files, d){
                         <th>DESCRIPTION</th>
                         <th>SIZE</th>
                         <th>TYPE</th>
+                        <th></th>
                     </tr>
     `
     files.forEach( f => {
@@ -47,6 +48,11 @@ function home( files, d){
               <td>${f.description}</td>
               <td>${f.size}</td>
               <td>${f.mimetype}</td>
+              <td>
+                <form action="/files/delete/${f.id}" method="POST">
+                        <input type="submit" value="APAGAR"/>
+                    </form>
+              </td>
           </tr>
       `
     })
