@@ -1,0 +1,53 @@
+body {
+  font-size: 14px;
+  font-family: Optima, sans-serif;
+  color: #603808;
+  font-size: medium;
+  background-image: url("https://www.miltonandking.com/wp-content/uploads/2018/10/Wallpaper-KH-Jungle-Fever-1-1100x1318.jpg");
+}
+
+.section-title {
+  font-style: italic;
+  color: #583101;
+  border-bottom: 2px solid #583101;
+  margin: 0 10px 5px 10px;
+}
+
+.section {
+  background-color: #d6d2bdeb;
+  margin: 15px 5px;
+  padding: 5px 0px 20px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer {
+  text-align: center;
+  bottom: 0;
+  padding: 5px;
+  width: fit-content;
+  position: fixed;
+  color:#3a5a40;
+}
+
+th {
+  width: 3%;
+  min-width: fit-content;
+}
+
+form {
+  margin: 10px auto 5px auto;
+}
+
+label, input {
+  margin: 10px;
+  vertical-align: top;
+}
+
+input[type='submit'] {
+  display: block;
+  padding: 5px;
+  border: 1px solid #B78F36;
+  background-color: #B78F36;
+  font-size: medium;
+  color: #603808;
+}
