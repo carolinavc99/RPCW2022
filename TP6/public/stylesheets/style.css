@@ -26,7 +26,7 @@ body {
   padding: 5px;
   width: fit-content;
   position: fixed;
-  color:#3a5a40;
+  color:#603808;
 }
 
 th {
@@ -41,13 +41,31 @@ form {
 label, input {
   margin: 10px;
   vertical-align: top;
+  text-transform: uppercase;
 }
 
-input[type='submit'] {
+input[type='submit'], .file-upload {
   display: block;
   padding: 5px;
   border: 1px solid #B78F36;
   background-color: #B78F36;
-  font-size: medium;
+  font-size: small;
+  font-weight: bold;
   color: #603808;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+  width:fit-content;
+  cursor: pointer;
+}
+
+
+textarea {
+  border: 1px solid #B78F36;
+  background-color: #dedbc8f3;
 }

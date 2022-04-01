@@ -16,11 +16,12 @@ function home( files, d){
                     <h2>FILE UPLOAD</h2>
                 </div>
                 <form action="/files" method="POST" enctype="multipart/form-data">
-                    <label><b>Select file</b></label>
-                    <input type="file" name="myFile" required>
-                    
-                    <label><b>Image Description:</b></label>
-                    <textarea name="myDescription" rows="4" cols="50" required></textarea>
+                    <label class="file-upload">
+                        Select file
+                        <input type="file" name="myFile" required>
+                    </label>
+                    <label><b>DESCRIPTION</b></label>
+                    <textarea name="myDescription" rows="3" cols="30" required></textarea>
 
                     <input type="submit" value="Submit"/>
                 </form>
@@ -31,11 +32,11 @@ function home( files, d){
                 </div>
                 <table>
                     <tr>
-                        <th>Date</th>
-                        <th>File</th>
-                        <th>Description</th>
-                        <th>Size</th>
-                        <th>Type</th>
+                        <th>DATE</th>
+                        <th>FILE</th>
+                        <th>DESCRIPTION</th>
+                        <th>SIZE</th>
+                        <th>TYPE</th>
                     </tr>
     `
     files.forEach( f => {
