@@ -2,7 +2,7 @@
 <doc>
     <meta>
         <titulo></titulo>
-        <data>2022-03-29</data>
+        <data>2022-04-02</data>
         <autor>
             <id>PG47100</id>
             <nome>Carolina da Torre Vila Chã</nome>
@@ -14,13 +14,25 @@
     </meta>
     
     <resumo>
-        <p></p>
+        <p>Uma página web que permite o upload de ficheiros e a visualização das suas informações (data de upload, nome, descrição, tamanho e tipo).</p>
     </resumo>
 
     <resultados>
         <resultado>
-            <url></url>
-            <title></title>
+            <url>app.js</url>
+            <title>Aplicação principal</title>
+        </resultado>
+        <resultado>
+            <url>mytemplates.js</url>
+            <title>Templates html para o site</title>
+        </resultado>
+        <resultado>
+            <url>fileStore</url>
+            <title>Pasta de ficheiros submetidos por upload.</title>
+        </resultado>
+        <resultado>
+            <url>public/stylesheets/style.css</url>
+            <title>Código css para o estilo da página web.</title>
         </resultado>
     </resultados>
 </doc>

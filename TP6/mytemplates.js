@@ -50,7 +50,7 @@ function home( files, d){
               <td>${f.mimetype}</td>
               <td>
                 <form action="/files/delete/${f.id}" method="POST">
-                        <input type="submit" value="APAGAR"/>
+                        <input type="submit" value="DELETE"/>
                     </form>
               </td>
           </tr>
