@@ -20,7 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('*', (req, res, next) => {
-  console.log('-> GET')
   next()
 });
 
@@ -67,6 +66,14 @@ app.get("/style.css", (req, res) => {
     res.end()
   })
 });
+
+app.get("/favicon.ico", (req, res) => {
+  fs.readFile('./public/images/favicon.ico', function(err,data) {
+    res.writeHead(200, {'Content-type':'image/x-icon'})
+    if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+    res.end()
+  })
+})
 
 // delete (?)
 app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
