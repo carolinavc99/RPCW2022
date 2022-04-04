@@ -7,7 +7,6 @@ function home( files, d){
           <head>
               <title>File List</title>
               <meta charset="utf-8"/>
-              <link rel="icon" href="/favicon.png"/>
               <link rel="stylesheet" href="/style.css"/>
           </head>
           <body>
