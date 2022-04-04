@@ -4,7 +4,6 @@ var logger = require('morgan');
 var fs = require('fs');
 
 var mytemplates = require('./mytemplates');
-var templates = require('./html-templates');
 var jsonfile = require('jsonfile');
 
 var multer = require('multer');
