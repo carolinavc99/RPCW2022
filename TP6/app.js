@@ -43,8 +43,15 @@ app.post('/files', upload.single('myFile'), (req, res) => {
 
   var d = new Date().toISOString().substring(0, 16)
   var files = jsonfile.readFileSync('./dbFiles.json')
-  var pos = files.length - 1
-  var iden = files[pos]['id'] + 1
+
+  var maxid = 0
+  files.forEach(file => {
+    if (file["id"] > maxid) {
+      maxid = file["id"]
+    }
+  });
+
+  var iden = maxid + 1
 
   files.push({
     date: d,
