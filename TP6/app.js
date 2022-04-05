@@ -43,7 +43,8 @@ app.post('/files', upload.single('myFile'), (req,res) => {
 
   var d = new Date().toISOString().substring(0,16)
   var files = jsonfile.readFileSync('./dbFiles.json')
-  var counter = files.length
+  var pos = files.length - 1
+  var iden = files[pos]['id'] +  1
 
   files.push({
     date: d,
@@ -51,7 +52,7 @@ app.post('/files', upload.single('myFile'), (req,res) => {
     mimetype: req.file.mimetype,
     size: req.file.size,
     description: req.body.myDescription,
-    id: counter
+    id: iden
   })
   
   jsonfile.writeFileSync('./dbFiles.json', files)
@@ -78,12 +79,19 @@ app.get("/favicon.ico", (req, res) => {
 // delete (?)
 app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
   let id = req.url.split("/")[3]
-  console.log("ID ->", id)
 
   var files = jsonfile.readFileSync('./dbFiles.json')
-
-  files.splice(id)
+  var counter = 0
   
+  files.forEach(file => {
+    if (file["id"] == id) {
+      if (files.splice(counter ,1) == "") {
+        files.pop()
+      }
+    }
+    counter++
+  });
+
   jsonfile.writeFileSync('./dbFiles.json', files)
 
   res.redirect("/")
