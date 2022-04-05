@@ -2,7 +2,7 @@
 <doc>
     <meta>
         <titulo></titulo>
-        <data>2022-04-02</data>
+        <data>2022-04-05</data>
         <autor>
             <id>PG47100</id>
             <nome>Carolina da Torre Vila Chã</nome>
@@ -33,6 +33,10 @@
         <resultado>
             <url>public/stylesheets/style.css</url>
             <title>Código css para o estilo da página web.</title>
+        </resultado>
+        <resultado>
+            <url>public/images/favicon.ico</url>
+            <title>Ícon da aplicação</title>
         </resultado>
     </resultados>
 </doc>
