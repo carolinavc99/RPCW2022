@@ -74,9 +74,8 @@ app.get("/favicon.ico", (req, res) => {
     if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
     res.end()
   })
-})
+});
 
-// delete (?)
 app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
   let id = req.url.split("/")[3]
 
@@ -85,6 +84,7 @@ app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
   
   files.forEach(file => {
     if (file["id"] == id) {
+      // if splice fails, assumes the element to remove is the last one
       if (files.splice(counter ,1) == "") {
         files.pop()
       }
