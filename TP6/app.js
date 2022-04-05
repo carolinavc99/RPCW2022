@@ -7,7 +7,7 @@ var mytemplates = require('./mytemplates');
 var jsonfile = require('jsonfile');
 
 var multer = require('multer');
-var upload = multer({dest:'uploads'});
+var upload = multer({ dest: 'uploads' });
 
 var app = express();
 
@@ -24,14 +24,14 @@ app.get('*', (req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  var d = new Date().toISOString().substring(0,16)
+  var d = new Date().toISOString().substring(0, 16)
   var files = jsonfile.readFileSync('./dbFiles.json')
-  res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
+  res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
   res.write(mytemplates.home(files, d))
   res.end()
 });
 
-app.post('/files', upload.single('myFile'), (req,res) => {
+app.post('/files', upload.single('myFile'), (req, res) => {
   let oldPath = __dirname + "/" + req.file.path
   let newPath = __dirname + "/fileStore/" + req.file.originalname
 
@@ -41,10 +41,10 @@ app.post('/files', upload.single('myFile'), (req,res) => {
     }
   })
 
-  var d = new Date().toISOString().substring(0,16)
+  var d = new Date().toISOString().substring(0, 16)
   var files = jsonfile.readFileSync('./dbFiles.json')
   var pos = files.length - 1
-  var iden = files[pos]['id'] +  1
+  var iden = files[pos]['id'] + 1
 
   files.push({
     date: d,
@@ -54,24 +54,24 @@ app.post('/files', upload.single('myFile'), (req,res) => {
     description: req.body.myDescription,
     id: iden
   })
-  
+
   jsonfile.writeFileSync('./dbFiles.json', files)
 
   res.redirect('/')
 });
 
 app.get("/style.css", (req, res) => {
-  fs.readFile('./public/stylesheets/style.css', function(err,data) {
-    res.writeHead(200, {'Content-type':'text/css; charset=utf-8'})
-    if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+  fs.readFile('./public/stylesheets/style.css', function (err, data) {
+    res.writeHead(200, { 'Content-type': 'text/css; charset=utf-8' })
+    if (err) { res.write("<p> File reading error. </p>") } else { res.write(data) }
     res.end()
   })
 });
 
 app.get("/favicon.ico", (req, res) => {
-  fs.readFile('./public/images/favicon.ico', function(err,data) {
-    res.writeHead(200, {'Content-type':'image/x-icon'})
-    if (err) {res.write("<p> File reading error. </p>")} else {res.write(data)}
+  fs.readFile('./public/images/favicon.ico', function (err, data) {
+    res.writeHead(200, { 'Content-type': 'image/x-icon' })
+    if (err) { res.write("<p> File reading error. </p>") } else { res.write(data) }
     res.end()
   })
 });
@@ -81,11 +81,11 @@ app.post(/\/files\/delete\/[0-9]+/, (req, res) => {
 
   var files = jsonfile.readFileSync('./dbFiles.json')
   var counter = 0
-  
+
   files.forEach(file => {
     if (file["id"] == id) {
       // if splice fails, assumes the element to remove is the last one
-      if (files.splice(counter ,1) == "") {
+      if (files.splice(counter, 1) == "") {
         files.pop()
       }
     }
