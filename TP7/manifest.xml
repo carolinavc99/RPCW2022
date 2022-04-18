@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo></titulo>
+        <data>2022-04-18</data>
+        <autor>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
+        </autor>
+        <UC>
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome> 
+        </UC>
+    </meta>
+    
+    <resumo>
+        <p>Resolução do Exercício Nº 2: CLAV: Classificação e Avaliação da Informação Pública</p>
+    </resumo>
+
+    <resultados>
+        <resultado>
+            <url>app.js</url>
+            <title>Aplicação principal</title>
+        </resultado>
+        <resultado>
+            <url>public/stylesheets/style.css</url>
+            <title>Código css para o estilo da página web.</title>
+        </resultado>
+        <resultado>
+            <url>views</url>
+            <title>Pasta que contém o código jade para as páginas web.</title>
+        </resultado>
+        <resultado>
+            <url>routes</url>
+            <title>Pasta que contém as rotas para as páginas web.</title>
+        </resultado>
+    </resultados>
+</doc>
+
+<!--
+    Metainformação: título, data, autor, UC (só varia título e data)
+    Resumo: lista de parágrafos
+    Lista de resultados: ficheiros
+
+    doc
+        meta
+            titulo
+            data
+            autor
+                id
+                nome
+            uc
+                sigla
+                nome
+        resumo
+            p +
+        resultados
+    		resultado +
+-->

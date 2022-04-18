@@ -1,0 +1,42 @@
+body {
+  padding: 50px;
+  font: 14px "Optima", sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr.tabletitle>th {
+  background-color: #FFB6B9;
+}
+
+td {
+  padding: 3px 0px;
+}
+
+th {
+  border-bottom: 1px grey solid;
+}
+
+tr:nth-child(2n) {
+  background-color: #FAE3D9;
+}
+
+tr:nth-child(2n+1) {
+  background-color: white;
+}
+
+footer {
+  text-align: center;
+  bottom: 0;
+  padding: 5px;
+  width: fit-content;
+  position: fixed;
+  color: black;
+}
