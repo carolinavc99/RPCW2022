@@ -43,11 +43,12 @@ block content
               th Código
               th Título
             for p in processosRelacionados
-              td= p.idRel
-              td 
-                a(href="/classes/" + p.codigo) #{p.codigo}
-              td
-                a(href="/classes/" + p.codigo) #{p.titulo}
+              tr
+                td= p.idRel
+                td 
+                    a(href="/classes/" + p.codigo) #{p.codigo}
+                td
+                    a(href="/classes/" + p.codigo) #{p.titulo}
 
       if data.filhos.length > 0
         table
