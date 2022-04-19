@@ -8,7 +8,6 @@ var visited = ['/']
 router.get('*', (req, res, next) => {
   if (req.url != "/voltar" && req.url != "/favicon.ico") {
     visited.push(req.url)
-    console.log(visited)
   }
   next()
 });
@@ -27,7 +26,6 @@ router.get('/', function(req, res) {
 
 router.get(/\/classes\/[0-9\.]+/, function(req, res) {
   var id = req.url.split("/")[2]
-  console.log("Consulting class " + id)
   axios.get('http://clav-api.di.uminho.pt/v2/classes/c' + id + "?" + apikey)
     .then(resp => {
       var dados = resp.data;
@@ -51,9 +49,6 @@ router.get(/\/classes\/[0-9\.]+/, function(req, res) {
 router.get("/voltar", function(req, res) {
   visited.pop() // without this pop it goes back to itself
   var lastvisited = visited.pop()
-  console.log("vis->", visited)
-  console.log("last->", lastvisited)
-
   res.redirect(lastvisited)
 });
 

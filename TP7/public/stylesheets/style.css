@@ -70,6 +70,15 @@ li {
   padding: 5px;
 }
 
+.autorbutton {
+  text-decoration: none;
+  border: 2px solid #dd3bc4;
+  border-radius: 5px;
+  background-color:#ffaad0;
+  color: black;
+  padding: 5px;
+}
+
 header>h1 {
   margin: 0px auto;
   width: fit-content;
