@@ -1,18 +1,16 @@
 extends layout
 
 block content
-    header
-      h1 CLAV: Classificação e Avaliação da Informação Pública
     body
       table 
         tbody 
           tr.tabletitle 
             th(colspan="2") Informação da Classe #{data.codigo}
           tr 
-            td Nível
-            td= data.nivel
-          tr 
             td Título
+            td= data.titulo
+          tr 
+            td Nível
             td= data.nivel
           tr 
             td Descrição
@@ -20,33 +18,36 @@ block content
           tr 
             td Status
             td= data.status
-          if data.notasAp != []
+          if data.notasAp.length > 0
             tr
-              td Notas
+              td NotasAp
               td 
                 ul
                   for n in data.notasAp
                     li [#{n.idNota}] #{n.nota} 
-          tr 
-            td 
-            td
+          if data.notasEx.length > 0
+            tr
+              td NotasEx
+              td 
+                ul
+                  for n in data.notasEx
+                    li [#{n.idNota}] #{n.nota}
           
 
-      if data.filhos != []  
-        if data.filhos
-          table
-            tbody 
-              tr.tabletitle 
-                th(colspan="2") Filhos
-              tr 
-                th Código
-                th Título
-              for f in data.filhos 
-                tr
-                  td
-                    a(href="/classes/" + f.codigo) #{f.codigo}
-                  td
-                    a(href="/classes/" + f.codigo) #{f.titulo}
+      if data.filhos.length > 0
+        table
+          tbody 
+            tr.tabletitle 
+              th(colspan="2") Filhos
+            tr 
+              th Código
+              th Título
+            for f in data.filhos 
+              tr
+                td
+                  a(href="/classes/" + f.codigo) #{f.codigo}
+                td
+                  a(href="/classes/" + f.codigo) #{f.titulo}
               
             
     footer
