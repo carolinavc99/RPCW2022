@@ -33,6 +33,21 @@ block content
                   for n in data.notasEx
                     li [#{n.idNota}] #{n.nota}
           
+      if data.nivel == 3 && processosRelacionados.length > 0
+        table
+          tbody
+            tr.tabletitle 
+              th(colspan="3") Processos Relacionados
+            tr 
+              th Tipo
+              th Código
+              th Título
+            for p in processosRelacionados
+              td= p.idRel
+              td 
+                a(href="/classes/" + p.codigo) #{p.codigo}
+              td
+                a(href="/classes/" + p.codigo) #{p.titulo}
 
       if data.filhos.length > 0
         table

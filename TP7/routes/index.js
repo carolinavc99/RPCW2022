@@ -31,7 +31,17 @@ router.get(/\/classes\/[0-9\.]+/, function(req, res) {
   axios.get('http://clav-api.di.uminho.pt/v2/classes/c' + id + "?" + apikey)
     .then(resp => {
       var dados = resp.data;
-      res.render('classe', { data: dados , title: "Classe", date: date});
+
+      axios.get('http://clav-api.di.uminho.pt/v2/classes/c' + id + "/procRel" + "?" + apikey)
+         .then (resp2 => {
+          var procRel = []
+          resp2.data.forEach( p => {
+            if (p.idRel == "eCruzadoCom" || p.idRel == "eComplementarDe" || p.idRel == "eSuplementoDe" || p.idRel == "eSuplementoPara") {
+              procRel.push(p)
+            }
+          })
+          res.render('classe', { data: dados , title: "Classe", processosRelacionados: procRel, date: date});
+         })
     })
     .catch(error => {
       res.render('error', { error: error, title: "Error" , message: "Error"});
