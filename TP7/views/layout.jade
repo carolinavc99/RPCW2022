@@ -5,9 +5,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      h1 CLAV: Classificação e Avaliação da Informação Pública
-      h4
-        a(href="/") Página Inicial
-      h4  
-        a(href="/voltar") Página Anterior
+      h1 CLAV
+      h1 Classificação e Avaliação da Informação Pública
+      div.navbuttons 
+        h4
+          a(href="/").homebutton ☖ Página Inicial
+        h4  
+          a(href="/voltar").backbutton ↩ Página Anterior
     block content

@@ -1,10 +1,10 @@
 body {
-  padding: 50px;
+  padding: 20px 50px;
   font: 14px "Optima", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
 
 table {
@@ -17,7 +17,8 @@ tr.tabletitle>th {
 }
 
 td {
-  padding: 3px 0px;
+  padding: 5px 5px;
+
 }
 
 th {
@@ -29,7 +30,7 @@ tr:nth-child(2n) {
 }
 
 tr:nth-child(2n+1) {
-  background-color: white;
+  background-color: #fef4f1;
 }
 
 footer {
@@ -39,4 +40,48 @@ footer {
   width: fit-content;
   position: fixed;
   color: black;
+}
+
+ul {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 5px 5px;
+}
+
+li {
+  list-style:square;
+}
+
+.backbutton {
+  text-decoration: none;
+  border: 2px solid #FFB6B9;
+  border-radius: 5px;
+  background-color:#FAE3D9;
+  color: black;
+  padding: 5px;
+}
+
+.homebutton {
+  text-decoration: none;
+  border: 2px solid #98e051;
+  border-radius: 5px;
+  background-color:#d7f3ab;
+  color: black;
+  padding: 5px;
+}
+
+header>h1 {
+  margin: 0px auto;
+  width: fit-content;
+}
+
+.navbuttons {
+  display: inline-flex;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+div.navbuttons>h4 {
+  margin: 0px 5px 10px 5px;
 }

@@ -31,7 +31,8 @@ block content
               td 
                 ul
                   for n in data.notasEx
-                    li [#{n.idNota}] #{n.nota}
+                    li 
+                      [#{n.idNota}] #{n.nota}
           
       if data.nivel == 3 && processosRelacionados.length > 0
         table
