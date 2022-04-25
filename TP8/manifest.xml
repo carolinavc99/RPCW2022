@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo></titulo>
+        <data>2022-04-25</data>
+        <autor>
+            <id>PG47100</id>
+            <nome>Carolina da Torre Vila Chã</nome>
+        </autor>
+        <UC>
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome> 
+        </UC>
+    </meta>
+    
+    <resumo>
+        <p>Utilização de jQuery</p>
+    </resumo>
+
+    <resultados>
+        <resultado>
+            <url>index.html</url>
+            <title>Página de projeto</title>
+        </resultado>
+    </resultados>
+</doc>
+
+<!--
+    Metainformação: título, data, autor, UC (só varia título e data)
+    Resumo: lista de parágrafos
+    Lista de resultados: ficheiros
+
+    doc
+        meta
+            titulo
+            data
+            autor
+                id
+                nome
+            uc
+                sigla
+                nome
+        resumo
+            p +
+        resultados
+    		resultado +
+-->
