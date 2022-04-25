@@ -7,7 +7,7 @@
         var id = 0;
 
         $('#submit').click(function() {
-            $("#paragrafos").append("<div id='d" + id + "' class ='c" + id + "'><li>" + $("#texto").val() + '</li><form><input id="remove' + id + '" type="button" value="Remove" class="c' + id + '"></form>');
+            $("#paragrafos").append("<div id='d" + id + "' class ='c" + id + "'><li>" + $("#texto").val() + '</li><form><input id="remove' + id + '" type="button" value="Remove" class="c' + id + '"><input id="edit' + id + '" type="button" value="Edit" class="c' + id + '"></form>');
             $("#texto").val("");
             id += 1;
           });
@@ -16,6 +16,11 @@
     $(document).on('click','input[id^=remove]',function(){
         div = $(this).attr("class");
         $("." + div).hide();
+    });
+
+    $(document).on('click','input[id^=edit]',function(){
+        div = $(this).attr("class");
+        //$("." + div).hide();
     });
   </script>
   <style>
