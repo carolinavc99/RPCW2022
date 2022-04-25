@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+        id = 0;
+
+        $('#submit').click(function() {
+            $("#paragrafos").append("<div id=d" + id + "><li>" + $("#texto").val() + "</li><form><input id='edit" + id + "' type='button' value='Edit'></form>");
+            $("#texto").val("");
+            id += 1;
+          });
+
+        $("input[id^='edit']").click(function(){
+            $("div[id=id]").append("<p>shit</p>");
+        });
+
+        $('edit0').click(function() {
+            $('d0').hide();
+        });
+
+    });
+  </script>
+  <style>
+      html {
+          font-family: 'Optima', sans-serif;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      #formulario {
+          border-bottom: solid black 1px;
+          padding: 10px;
+      }
+      #paragrafos {
+          display:block;
+          list-style: square;
+      }
+  </style>
+</head>
+<body>
+    <h1>My TODO List</h1>
+    <div id="formulario">
+        <p class="add-task">Add next task</p>
+        <form>
+            <input type="text" id="texto">
+            <input id="submit" type="button" value="Add">
+        </form>   
+    </div>
+  <div>
+      <ul id="paragrafos">
+
+      </ul>
+  </div>
+</body>
+</html>
