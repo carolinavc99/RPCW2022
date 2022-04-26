@@ -99,11 +99,28 @@
       ul>div {
         border: solid whitesmoke 1px;
         padding: 5px;
-        list-style: none;
+        margin: 20px 0px;
+        background-color: rgba(245, 245, 245, 0.381);
+      }
+
+      ul>div:nth-child(4n) {
+        list-style: inside url('https://img.icons8.com/nolan/32/task.png');
+      }
+
+      ul>div:nth-child(4n + 1) {
+        list-style: inside url('https://img.icons8.com/nolan/32/buy-with-card.png');
+      }
+
+      ul>div:nth-child(4n + 2) {
+        list-style: inside url('https://img.icons8.com/nolan/32/moleskine.png');
+      }
+      
+      ul>div:nth-child(4n + 3) {
+        list-style: inside url('https://img.icons8.com/nolan/32/spiral-bound-booklet.png');
       }
 
       li {
-          padding: 5px;
+        padding: 5px;
       }
 
       input {
@@ -119,17 +136,11 @@
         <form>
             <input type="text" id="texto">
             <input id="submit" type="button" value="Add">
-            <input id='submitedited' type='button' value='Adding' hidden>
+            <input id='submitedited' type='button' value='Edit' hidden>
         </form>   
     </div>
   <div name="paragrafos">
       <ul id="paragrafos">
-        <div id='d0' class ='c0'>
-            <li>Texto Exemplo</li>
-            <form>
-                <input id="remove0" type="button" value="Remove" class="c0">
-                <input id="edit0" type="button" value="Edit" class="c0">
-            </form>
       </ul>
   </div>
 </body>
