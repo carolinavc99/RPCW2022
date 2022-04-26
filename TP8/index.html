@@ -51,24 +51,69 @@
   <style>
       html {
           font-family: 'Optima', sans-serif;
+          font-style: italic;
+          background-image: url("https://wallpapercave.com/wp/wp6574733.jpg");
+          color:whitesmoke;
+          text-shadow: 1px 1px #ffafcc, 2px 2px #be0aff;
       }
 
       h1 {
           text-align: center;
+          text-shadow: 2px 2px #ffafcc,
+                       4px 4px #ff0000, 
+                       6px 6px #ff8700,
+                       8px 8px #ffd300,
+                       10px 10px #deff0a,
+                       12px 12px #0aff99,
+                       14px 14px #0aefff,
+                       16px 16px #147df5,
+                       18px 18px #580aff,
+                       20px 20px #be0aff;
       }
 
       #formulario {
-          border-bottom: solid black 1px;
+          border-bottom: solid whitesmoke 5px;
           padding: 10px;
+          padding-bottom: 40px;
       }
       #paragrafos {
           display:block;
           list-style: square;
       }
+
+      #submit, #submitedited {
+          border-color: whitesmoke;
+          border-radius: 3px;
+          background-color:whitesmoke;
+          box-shadow: 2px 2px #ffafcc,
+                       4px 4px #ff0000, 
+                       6px 6px #ff8700,
+                       8px 8px #ffd300;
+      }
+
+      input[type="text"] {
+          width: 500px;
+          height: 20px;
+      }
+
+      ul>div {
+        border: solid whitesmoke 1px;
+        padding: 5px;
+        list-style: none;
+      }
+
+      li {
+          padding: 5px;
+      }
+
+      input {
+          float: left;
+      }
+
   </style>
 </head>
 <body>
-    <h1>My TODO List</h1>
+    <h1>TODO</h1>
     <div id="formulario">
         <p class="add-task">Add next task</p>
         <form>
@@ -77,9 +122,14 @@
             <input id='submitedited' type='button' value='Adding' hidden>
         </form>   
     </div>
-  <div>
+  <div name="paragrafos">
       <ul id="paragrafos">
-
+        <div id='d0' class ='c0'>
+            <li>Texto Exemplo</li>
+            <form>
+                <input id="remove0" type="button" value="Remove" class="c0">
+                <input id="edit0" type="button" value="Edit" class="c0">
+            </form>
       </ul>
   </div>
 </body>
