@@ -5,6 +5,7 @@
   <script>
     $(document).ready(function() {
         var id = 0;
+        var idx = 0;
 
         $('#submit').click(function() {
             $("#paragrafos").append("<div id='d" + id + "' class ='c" + id + "'><li>" + $("#texto").val() + '</li><form><input id="remove' + id + '" type="button" value="Remove" class="c' + id + '"><input id="edit' + id + '" type="button" value="Edit" class="c' + id + '"></form>');
@@ -14,14 +15,34 @@
     });
 
     $(document).on('click','input[id^=remove]',function(){
-        div = $(this).attr("class");
-        $("." + div).hide();
+        divclass = $(this).attr("class");
+        $("." + divclass).hide();
     });
 
     $(document).on('click','input[id^=edit]',function(){
-        div = $(this).attr("class");
-        //$("." + div).hide();
-    });
+        // get div which has the text
+        var divclass ="." + $(this).attr("class");
+        // get number-only id
+        idx = divclass.substring(2)
+        // get texto from li (div)
+        var text = $(divclass).find("li").text()
+        // copy texto para form
+        $("#texto").val(text)
+
+        // replace form button with another one
+            // to avoid having two click-events for #submit
+        $("#submit").hide()
+        $("#submitedited").show()
+
+        // get paragraph and replace text
+        $("#submitedited").click(function(){
+            $(divclass).replaceWith("<div id='d" + idx + "' class ='c" + idx + "'><li>" + $("#texto").val() + '</li><form><input id="remove' + idx + '" type="button" value="Remove" class="c' + idx + '"><input id="edit' + idx + '" type="button" value="Edit" class="c' + idx + '"></form>');
+            $("#texto").val("");
+
+            $("#submitedited").hide()
+            $("#submit").show()
+        });
+});
   </script>
   <style>
       html {
@@ -49,6 +70,7 @@
         <form>
             <input type="text" id="texto">
             <input id="submit" type="button" value="Add">
+            <input id='submitedited' type='button' value='Adding' hidden>
         </form>   
     </div>
   <div>
